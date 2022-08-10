@@ -3,6 +3,8 @@
    WAAdmin register: PieCharExampleComponent asApplicationAt: 'piechart'
 ```
 
+Eso es un ejemplo
+
 
 
 "
