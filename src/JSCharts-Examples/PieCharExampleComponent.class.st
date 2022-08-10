@@ -21,7 +21,7 @@ Class {
 { #category : #accessing }
 PieCharExampleComponent >> children [
 
-	^ { pieChartSubcomponent }
+	^ { pieChartSubcomponent. secondPie  }
 ]
 
 { #category : #rendering }
