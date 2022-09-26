@@ -1,1 +1,1 @@
-Package { #name : #'D3SCharts' }
+Package { #name : #D3SCharts }

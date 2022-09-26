@@ -17,7 +17,7 @@ D3ForceDirectedGraphExampleComponent >> children [
 D3ForceDirectedGraphExampleComponent >> initialize [
 
 	super initialize.
-	graph := D3ForceDirectedGraphComponent new
+	graph := D3SForceDirectedGraphComponent new
 		                        height: 900;
 		                        width: 900;
 		                        yourself.

@@ -1,23 +1,21 @@
 Class {
-	#name : #D3CirclePackingBubbleChartComponent,
-	#superclass : #WAComponent,
+	#name : #D3SCirclePackingBubbleChartComponent,
+	#superclass : #D3SComponent,
 	#instVars : [
-		'height',
-		'width',
 		'data'
 	],
-	#category : #'D3SCharts'
+	#category : #D3SCharts
 }
 
 { #category : #accessing }
-D3CirclePackingBubbleChartComponent class >> data: anArrayOfDictionaries [
+D3SCirclePackingBubbleChartComponent class >> data: anArrayOfDictionaries [
 	^ self new
 		data: anArrayOfDictionaries;
 		yourself
 ]
 
 { #category : #accessing }
-D3CirclePackingBubbleChartComponent class >> dataMock [
+D3SCirclePackingBubbleChartComponent class >> dataMock [
     "Returns an Array of Dictionaries with an example for this chart"
     | arrayMock  dataMock idArrayMock valuesArrayMock arrayCount |
 
@@ -177,7 +175,7 @@ D3CirclePackingBubbleChartComponent class >> dataMock [
 ]
 
 { #category : #script }
-D3CirclePackingBubbleChartComponent >> bubbleDataString [
+D3SCirclePackingBubbleChartComponent >> bubbleDataString [
 	"[{ 'id': 'flare.vis.operator.layout.PieLayout', 'value': 1 }, { 'id': 'flare.vis.operator.layout.RadialTreeLayout', 'value': 8 }] "
 	"The dot notation in 'id' allows group of bubble with the same family / group "
 	"Data must be an Array of Dictionaries with the format [{id, value}]"
@@ -190,27 +188,17 @@ D3CirclePackingBubbleChartComponent >> bubbleDataString [
 ]
 
 { #category : #accessing }
-D3CirclePackingBubbleChartComponent >> data [
+D3SCirclePackingBubbleChartComponent >> data [
 	^ data
 ]
 
 { #category : #accessing }
-D3CirclePackingBubbleChartComponent >> data: anObject [
+D3SCirclePackingBubbleChartComponent >> data: anObject [
 	data := anObject
 ]
 
-{ #category : #accessing }
-D3CirclePackingBubbleChartComponent >> height [
-	^ height
-]
-
-{ #category : #accessing }
-D3CirclePackingBubbleChartComponent >> height: anObject [
-	height := anObject
-]
-
 { #category : #initialization }
-D3CirclePackingBubbleChartComponent >> initialize [
+D3SCirclePackingBubbleChartComponent >> initialize [
    super initialize. 
 	width := 900.
 	height := 500.
@@ -219,7 +207,7 @@ D3CirclePackingBubbleChartComponent >> initialize [
 ]
 
 { #category : #script }
-D3CirclePackingBubbleChartComponent >> jsForDivId: anId [
+D3SCirclePackingBubbleChartComponent >> jsForDivId: anId [
 
 	^ '
 flare = ', self bubbleDataString , ';
@@ -344,7 +332,7 @@ function BubbleChart(data, {
 ]
 
 { #category : #script }
-D3CirclePackingBubbleChartComponent >> renderContentOn: html [
+D3SCirclePackingBubbleChartComponent >> renderContentOn: html [
 
 	| divId |
 	divId := html nextId.
@@ -354,21 +342,4 @@ D3CirclePackingBubbleChartComponent >> renderContentOn: html [
 			'width: ' , width printString , 'px; height: ' , height printString
 			, 'px;'.
 	html script: (self jsForDivId: divId)
-]
-
-{ #category : #updating }
-D3CirclePackingBubbleChartComponent >> updateRoot: anHtmlRoot [
-    super updateRoot: anHtmlRoot.
-    anHtmlRoot javascript url: 'https://d3js.org/d3.v7.js'.
-
-]
-
-{ #category : #accessing }
-D3CirclePackingBubbleChartComponent >> width [
-	^ width
-]
-
-{ #category : #accessing }
-D3CirclePackingBubbleChartComponent >> width: anObject [
-	width := anObject
 ]

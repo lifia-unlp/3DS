@@ -1,17 +1,15 @@
 Class {
-	#name : #D3ForceDirectedGraphComponent,
-	#superclass : #WAComponent,
+	#name : #D3SForceDirectedGraphComponent,
+	#superclass : #D3SComponent,
 	#instVars : [
-		'height',
-		'width',
 		'nodes',
 		'links'
 	],
-	#category : #'D3SCharts'
+	#category : #D3SCharts
 }
 
 { #category : #accessing }
-D3ForceDirectedGraphComponent class >> graphLinksMock [
+D3SForceDirectedGraphComponent class >> graphLinksMock [
     "Returns an Array of Dictionaries with an example for this graph"
     | linksMock linkMock sourceArray targetArray valueArray arrayCount |
 
@@ -45,7 +43,7 @@ valueArray := #( 1 8 10 6 1 1 1 1 2 1 1 3 3 5 1 1 1 1 4 4 4 4 4 4 3 3 3 4 3 3 3 
 ]
 
 { #category : #accessing }
-D3ForceDirectedGraphComponent class >> graphNodesMock [
+D3SForceDirectedGraphComponent class >> graphNodesMock [
     "Returns an Array of Dictionaries with an example for this graph"
     | nodesMock nodeMock idArrayMock groupArrayMock arrayCount |
 
@@ -149,7 +147,7 @@ D3ForceDirectedGraphComponent class >> graphNodesMock [
 ]
 
 { #category : #accessing }
-D3ForceDirectedGraphComponent class >> nodes: anArrayOfNodes links: anArrayOfLinks [ 
+D3SForceDirectedGraphComponent class >> nodes: anArrayOfNodes links: anArrayOfLinks [ 
 	^ self new
 		nodes: anArrayOfNodes
 		links: anArrayOfLinks;
@@ -157,7 +155,7 @@ D3ForceDirectedGraphComponent class >> nodes: anArrayOfNodes links: anArrayOfLin
 ]
 
 { #category : #accessing }
-D3ForceDirectedGraphComponent >> graphDataString [
+D3SForceDirectedGraphComponent >> graphDataString [
 	" A JSON structure with 2 objects 
 	 nodes, // an iterable of node objects (typically [{id}, …])
     links // an iterable of link objects (typically [{source, target}, …])"
@@ -174,18 +172,8 @@ D3ForceDirectedGraphComponent >> graphDataString [
 	^ stream contents
 ]
 
-{ #category : #accessing }
-D3ForceDirectedGraphComponent >> height [
-	^ height
-]
-
-{ #category : #accessing }
-D3ForceDirectedGraphComponent >> height: anObject [
-	height := anObject
-]
-
 { #category : #initialization }
-D3ForceDirectedGraphComponent >> initialize [
+D3SForceDirectedGraphComponent >> initialize [
    super initialize. 
 	width := 900.
 	height := 900.
@@ -194,7 +182,7 @@ D3ForceDirectedGraphComponent >> initialize [
 ]
 
 { #category : #script }
-D3ForceDirectedGraphComponent >> jsForDivId: anId [
+D3SForceDirectedGraphComponent >> jsForDivId: anId [
 
 	^ '
 	dataGraph = ', self graphDataString , ';
@@ -349,29 +337,29 @@ function ForceGraph({
 ]
 
 { #category : #accessing }
-D3ForceDirectedGraphComponent >> links [
+D3SForceDirectedGraphComponent >> links [
 	^ links
 ]
 
 { #category : #accessing }
-D3ForceDirectedGraphComponent >> links: anArray [
+D3SForceDirectedGraphComponent >> links: anArray [
  "Links must be an Array of Dictionaries with the format [{source, target, value}]"
 	links := anArray
 ]
 
 { #category : #accessing }
-D3ForceDirectedGraphComponent >> nodes [
+D3SForceDirectedGraphComponent >> nodes [
 	^ nodes
 ]
 
 { #category : #accessing }
-D3ForceDirectedGraphComponent >> nodes: anArray [
+D3SForceDirectedGraphComponent >> nodes: anArray [
  "Nodes must be an Array of Dictionaries with the format [{id, group}]"
 	nodes := anArray
 ]
 
 { #category : #rendering }
-D3ForceDirectedGraphComponent >> renderContentOn: html [
+D3SForceDirectedGraphComponent >> renderContentOn: html [
 
 	| divId |
 	divId := html nextId.
@@ -381,20 +369,4 @@ D3ForceDirectedGraphComponent >> renderContentOn: html [
 			'width: ' , width printString , 'px; height: ' , height printString
 			, 'px;'.
 	html script: (self jsForDivId: divId).
-]
-
-{ #category : #updating }
-D3ForceDirectedGraphComponent >> updateRoot: anHtmlRoot [
-    super updateRoot: anHtmlRoot.
-    anHtmlRoot javascript url: 'https://d3js.org/d3.v7.min.js'.
-]
-
-{ #category : #accessing }
-D3ForceDirectedGraphComponent >> width [
-	^ width
-]
-
-{ #category : #accessing }
-D3ForceDirectedGraphComponent >> width: anObject [
-	width := anObject
 ]

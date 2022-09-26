@@ -1,12 +1,10 @@
 Class {
 	#name : #D3PartitionSunburstComponent,
-	#superclass : #WAComponent,
+	#superclass : #D3SComponent,
 	#instVars : [
-		'height',
-		'width',
 		'data'
 	],
-	#category : #'D3SCharts'
+	#category : #D3SCharts
 }
 
 { #category : #accessing }
@@ -462,16 +460,6 @@ D3PartitionSunburstComponent >> data: anObject [
 	data := anObject
 ]
 
-{ #category : #accessing }
-D3PartitionSunburstComponent >> height [
-	^ height
-]
-
-{ #category : #accessing }
-D3PartitionSunburstComponent >> height: anObject [
-	height := anObject
-]
-
 { #category : #initialization }
 D3PartitionSunburstComponent >> initialize [
    super initialize. 
@@ -633,20 +621,4 @@ D3PartitionSunburstComponent >> sunburstDataString [
 	stream nextPutAll: data printString.	
 
 	^ stream contents
-]
-
-{ #category : #updating }
-D3PartitionSunburstComponent >> updateRoot: anHtmlRoot [
-    super updateRoot: anHtmlRoot.
-    anHtmlRoot javascript url: 'https://d3js.org/d3.v7.min.js'.
-]
-
-{ #category : #accessing }
-D3PartitionSunburstComponent >> width [
-	^ width
-]
-
-{ #category : #accessing }
-D3PartitionSunburstComponent >> width: anObject [
-	width := anObject
 ]

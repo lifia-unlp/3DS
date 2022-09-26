@@ -17,7 +17,7 @@ D3CirclePackingBubbleChartExampleComponent >> children [
 D3CirclePackingBubbleChartExampleComponent >> initialize [
 
 	super initialize.
-	graph := D3CirclePackingBubbleChartComponent new
+	graph := D3SCirclePackingBubbleChartComponent new
 		                        height: 500;
 		                        width: 800;
 		                        yourself.
