@@ -10,9 +10,9 @@ BaselineOfD3S >> baseline: spec [
 	<baseline>
 	spec for: #common do: [ 
 		self seaside: spec.
-		spec package: 'JSCharts' with: [ spec requires: #( 'Seaside3' ) ].
+		spec package: 'D3SCharts' with: [ spec requires: #( 'Seaside3' ) ].
 		spec
-			package: 'JSCharts-Examples'
+			package: 'D3SCharts-Examples'
 			with: [ spec requires: #( 'Seaside3' ) ] ]
 ]
 
