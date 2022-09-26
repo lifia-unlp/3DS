@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'graph'
 	],
-	#category : #'3DSCharts-Examples'
+	#category : #'D3SCharts-Examples'
 }
 
 { #category : #accessing }

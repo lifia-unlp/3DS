@@ -6,7 +6,7 @@ Class {
 		'width',
 		'data'
 	],
-	#category : #'3DSCharts'
+	#category : #'D3SCharts'
 }
 
 { #category : #accessing }

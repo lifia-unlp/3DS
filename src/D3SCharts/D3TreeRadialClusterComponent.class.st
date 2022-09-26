@@ -7,5 +7,5 @@ Class {
 		'nodes',
 		'links'
 	],
-	#category : #'3DSCharts'
+	#category : #'D3SCharts'
 }

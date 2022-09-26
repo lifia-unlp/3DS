@@ -1,30 +1,30 @@
 Class {
-	#name : #D3PartitionSunburstExampleComponent,
+	#name : #D3ForceDirectedGraphExampleComponent,
 	#superclass : #WAComponent,
 	#instVars : [
 		'graph'
 	],
-	#category : #'3DSCharts-Examples'
+	#category : #'D3SCharts-Examples'
 }
 
 { #category : #accessing }
-D3PartitionSunburstExampleComponent >> children [
+D3ForceDirectedGraphExampleComponent >> children [
 
 	^ { graph }
 ]
 
 { #category : #initialization }
-D3PartitionSunburstExampleComponent >> initialize [
+D3ForceDirectedGraphExampleComponent >> initialize [
 
 	super initialize.
-	graph := D3PartitionSunburstComponent  new
+	graph := D3ForceDirectedGraphComponent new
 		                        height: 900;
 		                        width: 900;
 		                        yourself.
 ]
 
 { #category : #rendering }
-D3PartitionSunburstExampleComponent >> renderContentOn: anHtmlCanvas [
+D3ForceDirectedGraphExampleComponent >> renderContentOn: anHtmlCanvas [
 
 	anHtmlCanvas render: graph.
 ]
