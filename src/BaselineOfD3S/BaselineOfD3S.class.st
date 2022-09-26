@@ -1,11 +1,11 @@
 Class {
-	#name : #BaselineOf3DS,
+	#name : #BaselineOfD3S,
 	#superclass : #BaselineOf,
-	#category : #BaselineOf3DS
+	#category : #BaselineOfD3S
 }
 
 { #category : #baseline }
-BaselineOf3DS >> baseline: spec [
+BaselineOfD3S >> baseline: spec [
 
 	<baseline>
 	spec for: #common do: [ 
@@ -17,7 +17,7 @@ BaselineOf3DS >> baseline: spec [
 ]
 
 { #category : #baseline }
-BaselineOf3DS >> seaside: spec [
+BaselineOfD3S >> seaside: spec [
 	spec
 		baseline: 'Seaside3'
 		with: [ spec repository: 'github://SeasideSt/Seaside:master/repository' ].
