@@ -33,6 +33,24 @@ Array3DS >> initialize [
 ]
 
 { #category : #printing }
+Array3DS >> printModel [
+
+	"Returns the string in JSON format of the array"
+
+	| stream |
+	stream := String new writeStream.
+	stream nextPutAll: '['.
+	array do: [:each |
+			stream nextPutAll: each model.
+			stream nextPutAll: ','.
+		].
+	stream position: stream position - 1.   " Removes the last comma"
+	stream nextPutAll: ']'.
+
+	^ stream contents
+]
+
+{ #category : #printing }
 Array3DS >> printString [
 
 	"Returns the string in JSON format of the array"

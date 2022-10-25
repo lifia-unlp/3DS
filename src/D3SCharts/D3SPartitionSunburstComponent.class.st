@@ -1,5 +1,5 @@
 Class {
-	#name : #D3PartitionSunburstComponent,
+	#name : #D3SPartitionSunburstComponent,
 	#superclass : #D3SComponent,
 	#instVars : [
 		'data'
@@ -8,14 +8,14 @@ Class {
 }
 
 { #category : #accessing }
-D3PartitionSunburstComponent class >> data: aDictionary [
+D3SPartitionSunburstComponent class >> data: aDictionary [
 	^ self new
 		data: aDictionary;
 		yourself
 ]
 
 { #category : #accessing }
-D3PartitionSunburstComponent class >> dataMock [
+D3SPartitionSunburstComponent class >> dataMock [
     "Returns a Dictionary with an Array of Dictionaries (Like a Tree struct) with an example for this chart"
 
     | coreMock coreChildrenMock coreOptionsMock coreSubOptionMock childrensMock childrenMock dataMock |
@@ -451,25 +451,23 @@ D3PartitionSunburstComponent class >> dataMock [
 ]
 
 { #category : #accessing }
-D3PartitionSunburstComponent >> data [
+D3SPartitionSunburstComponent >> data [
 	^ data
 ]
 
 { #category : #accessing }
-D3PartitionSunburstComponent >> data: anObject [
+D3SPartitionSunburstComponent >> data: anObject [
 	data := anObject
 ]
 
 { #category : #initialization }
-D3PartitionSunburstComponent >> initialize [
+D3SPartitionSunburstComponent >> initialize [
    super initialize. 
-	width := 900.
-	height := 900.
 	data := self class dataMock.
 ]
 
 { #category : #script }
-D3PartitionSunburstComponent >> jsForDivId: anId [
+D3SPartitionSunburstComponent >> jsForDivId: anId [
 
 	^ '
 flare = ', self sunburstDataString ,';
@@ -481,8 +479,8 @@ chart = Sunburst(flare, {
   link: (d, n) => n.children
     ? `https://github.com/prefuse/Flare/tree/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}`
     : `https://github.com/prefuse/Flare/blob/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}.as`,
-  width: ', width printString , ',
-  height: ', height printString , '
+  width: ', 100 printString , ',
+  height: ', 100 printString , '
 })
 
 console.log(chart);
@@ -597,20 +595,20 @@ function Sunburst(data, { // data is either tabular (array of objects) or hierar
 ]
 
 { #category : #rendering }
-D3PartitionSunburstComponent >> renderContentOn: html [
+D3SPartitionSunburstComponent >> renderContentOn: html [
 
 	| divId |
 	divId := html nextId.
 	html div
 		id: divId;
 		style:
-			'width: ' , width printString , 'px; height: ' , height printString
+			'width: ' , 100 printString , 'px; height: ' , 100 printString
 			, 'px;'.
 	html script: (self jsForDivId: divId)
 ]
 
 { #category : #accessing }
-D3PartitionSunburstComponent >> sunburstDataString [
+D3SPartitionSunburstComponent >> sunburstDataString [
  "[{ 'id': 'flare.vis.operator.layout.PieLayout', 'value': 1 }, { 'id': 'flare.vis.operator.layout.RadialTreeLayout', 'value': 8 }] "
 	"The dot notation in 'id' allows group of bubble with the same family / group "
 	"Data must be an Array of Dictionaries with the format [{id, value}]"

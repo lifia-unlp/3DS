@@ -17,7 +17,7 @@ D3PartitionSunburstExampleComponent >> children [
 D3PartitionSunburstExampleComponent >> initialize [
 
 	super initialize.
-	graph := D3PartitionSunburstComponent  new
+	graph := D3SPartitionSunburstComponent  new
 		                        height: 900;
 		                        width: 900;
 		                        yourself.

@@ -1,208 +1,93 @@
 Class {
 	#name : #D3SCirclePackingBubbleChartComponent,
 	#superclass : #D3SComponent,
-	#instVars : [
-		'data'
-	],
 	#category : #D3SCharts
 }
 
 { #category : #accessing }
-D3SCirclePackingBubbleChartComponent class >> data: anArrayOfDictionaries [
-	^ self new
-		data: anArrayOfDictionaries;
-		yourself
+D3SCirclePackingBubbleChartComponent class >> dataMock [
+
+	"Returns an Array of Dictionaries with an example for this chart"
+
+	| model alumno1 alumno2 alumno3 alumno4 alumno5 adapter alumnos cantAlumnos |
+	alumno1 := Alumno
+		           nombre: 'Agustin'
+		           materiasAprobadas: 23
+		           anioInscripcion: 2018
+		           anioCarrera: 4.
+
+	alumno2 := Alumno
+		           nombre: 'Martina'
+		           materiasAprobadas: 3
+		           anioInscripcion: 2021
+		           anioCarrera: 1.
+
+	alumno3 := Alumno
+		           nombre: 'Alejo'
+		           materiasAprobadas: 8
+		           anioInscripcion: 2018
+		           anioCarrera: 3.
+
+	alumno4 := Alumno
+		           nombre: 'Gisela'
+		           materiasAprobadas: 4
+		           anioInscripcion: 2021
+		           anioCarrera: 1.
+
+	alumno5 := Alumno
+		           nombre: 'Gustavo'
+		           materiasAprobadas: 11
+		           anioInscripcion: 2016
+		           anioCarrera: 3.
+
+	alumnos := OrderedCollection new.
+	alumnos
+		add: alumno1;
+		add: alumno2;
+		add: alumno3;
+		add: alumno4;
+		add: alumno5.
+
+	cantAlumnos := alumnos size.
+
+	model := CirclePackingBubbleChartModel new.
+
+	1 to: cantAlumnos do: [ :each | 
+		adapter := AlumnoAdapter withAdaptee: (alumnos at: each).
+		model addBubbleFrom: adapter ].
+	^ model
 ]
 
-{ #category : #accessing }
-D3SCirclePackingBubbleChartComponent class >> dataMock [
-    "Returns an Array of Dictionaries with an example for this chart"
-    | arrayMock  dataMock idArrayMock valuesArrayMock arrayCount |
+{ #category : #creation }
+D3SCirclePackingBubbleChartComponent class >> model: aCirclePackingBubbleChartModel options: aCirclePackingBubbleChartOption [
 
-    idArrayMock := #( 'flare.analytics.cluster.AgglomerativeCluster' 'flare.analytics.cluster.CommunityStructure' 'flare.analytics.cluster.HierarchicalCluster' 'flare.analytics.cluster.MergeEdge'
-                    'flare.analytics.graph.BetweennessCentrality'
-                    'flare.analytics.graph.LinkDistance'
-                    'flare.analytics.graph.MaxFlowMinCut'
-                    'flare.analytics.graph.ShortestPaths'
-                    'flare.analytics.graph.SpanningTree'
-                    'flare.analytics.optimization.AspectRatioBanker'
-                    'flare.animate.Easing'
-                    'flare.animate.FunctionSequence'
-                    'flare.animate.interpolate.ArrayInterpolator'
-                    'flare.animate.interpolate.ColorInterpolator'
-                    'flare.animate.interpolate.DateInterpolator'
-                    'flare.animate.interpolate.Interpolator'
-                    'flare.animate.interpolate.MatrixInterpolator'
-                    'flare.animate.interpolate.NumberInterpolator'
-                    'flare.animate.interpolate.ObjectInterpolator'
-                    'flare.animate.interpolate.PointInterpolator'
-                    'flare.animate.interpolate.RectangleInterpolator'
-                    'flare.animate.ISchedulable'
-                    'flare.animate.Parallel'
-                    'flare.animate.Pause'
-                    'flare.animate.Scheduler'
-                    'flare.animate.Sequence'
-                    'flare.animate.Transition'
-                    'flare.animate.Transitioner'
-                    'flare.animate.TransitionEvent'
-                    'flare.animate.Tween'
-                    'flare.data.converters.Converters'
-                    'flare.data.converters.DelimitedTextConverter'
-                    'flare.data.converters.GraphMLConverter'
-                    'flare.data.converters.IDataConverter'
-                    'flare.data.converters.JSONConverter'
-                    'flare.data.DataField'
-                    'flare.data.DataSchema'
-                    'flare.data.DataSet'
-                    'flare.data.DataSource'
-                    'flare.data.DataTable'
-                    'flare.data.DataUtil'
-                    'flare.display.DirtySprite'
-                    'flare.display.LineSprite'
-                    'flare.display.RectSprite'
-                    'flare.display.TextSprite'
-                    'flare.flex.FlareVis'
-                    'flare.physics.DragForce'
-                    'flare.physics.GravityForce'
-                    'flare.physics.IForce'
-                    'flare.physics.NBodyForce'
-                    'flare.physics.Particle'
-                    'flare.physics.Simulation'
-                    'flare.physics.Spring'
-                    'flare.physics.SpringForce'
-                    'flare.query.AggregateExpression'
-                    'flare.query.And'
-                    'flare.query.Arithmetic'
-                    'flare.query.Average'
-                    'flare.query.BinaryExpression'
-                    'flare.query.Comparison'
-                    'flare.query.CompositeExpression'
-                    'flare.query.Count'
-                    'flare.query.DateUtil'
-                    'flare.query.Distinct'
-                    'flare.query.Expression'
-                    'flare.query.ExpressionIterator'
-                    'flare.query.Fn'
-
-                    ).
-
-
-
-    
-    valuesArrayMock := #( 3938
-                        3812
-                        6714
-                        743
-                        3534
-                        5731
-                        7840
-                        5914
-                        3416
-                        7074
-                        17010
-                        5842
-                        1983
-                        2047
-                        1375
-                        8746
-                        2202
-                        1382
-                        1629
-                        1675
-                        2042
-                        1041
-                        5176
-                        449
-                        5593
-                        5534
-                        9201
-                        19975
-                        1116
-                        6006
-                        721
-                        4294
-                        9800
-                        1314
-                        2220
-                        1759
-                        2165
-                        586
-                        3331
-                        772
-                        3322
-                        8833
-                        1732
-                        3623
-                        10066
-                        4116
-                        1082
-                        1336
-                        319
-                        10498
-                        2822
-                        9983
-                        2213
-                        1681
-                        1616
-                        1027
-                        3891
-                        891
-                        2893
-                        5103
-                        3677
-                        781
-                        4141
-                        933
-                        5130
-                        3617
-                        3240
-
-                        ). 
-
-
-    arrayMock := Array3DS new.
-    arrayCount := idArrayMock size.
-
-    1 to: arrayCount do: [ :each | 
-        dataMock := Dictionary3DS new.
-        dataMock addKey: 'id' withValue: (idArrayMock at: each);
-        addKey: 'value' withValue: (valuesArrayMock at: each).
-        arrayMock add: dataMock.
-        ].
-
-    ^ arrayMock
-
+	^ self new
+		  model: aCirclePackingBubbleChartModel;
+		  options: aCirclePackingBubbleChartOption;
+		  yourself
 ]
 
 { #category : #script }
 D3SCirclePackingBubbleChartComponent >> bubbleDataString [
+
 	"[{ 'id': 'flare.vis.operator.layout.PieLayout', 'value': 1 }, { 'id': 'flare.vis.operator.layout.RadialTreeLayout', 'value': 8 }] "
+
 	"The dot notation in 'id' allows group of bubble with the same family / group "
+
 	"Data must be an Array of Dictionaries with the format [{id, value}]"
 
 	| stream |
 	stream := String new writeStream.
-	stream nextPutAll: data printString.
-	
+	stream nextPutAll: model printModel.
+
 	^ stream contents
-]
-
-{ #category : #accessing }
-D3SCirclePackingBubbleChartComponent >> data [
-	^ data
-]
-
-{ #category : #accessing }
-D3SCirclePackingBubbleChartComponent >> data: anObject [
-	data := anObject
 ]
 
 { #category : #initialization }
 D3SCirclePackingBubbleChartComponent >> initialize [
    super initialize. 
-	width := 900.
-	height := 500.
-	data := self class dataMock.
+	options := CirclePackingBubbleChartOption new initialize.
+	model := CirclePackingBubbleChartModel new.
 
 ]
 
@@ -214,14 +99,7 @@ flare = ', self bubbleDataString , ';
 
 files = flare.filter(d => d.value !== null) 
 	
-chart = BubbleChart(files, {
-  label: d => [...d.id.split(".").pop().split(/(?=[A-Z][a-z])/g), d.value.toLocaleString("en")].join("\n"),
-  value: d => d.value,
-  group: d => d.id.split(".")[1],
-  title: d => `${d.id}\n${d.value.toLocaleString("en")}`,
-  link: d => `https://github.com/prefuse/Flare/blob/master/flare/src/${d.id.replace(/\./g, "/")}.as`,
-  width: ', width printString , '
-})
+chart = BubbleChart(files, ', self options ,')
 
 console.log(chart);
 
@@ -338,8 +216,6 @@ D3SCirclePackingBubbleChartComponent >> renderContentOn: html [
 	divId := html nextId.
 	html div
 		id: divId;
-		style:
-			'width: ' , width printString , 'px; height: ' , height printString
-			, 'px;'.
+		style: 'width: ' , self width , 'px; height: ' , self height , 'px;'.
 	html script: (self jsForDivId: divId)
 ]
