@@ -1,5 +1,5 @@
 Class {
-	#name : #D3CirclePackingBubbleChartExampleComponent,
+	#name : #D3SCirclePackingBubbleChartExampleComponent,
 	#superclass : #WAComponent,
 	#instVars : [
 		'graph'
@@ -8,7 +8,7 @@ Class {
 }
 
 { #category : #mocking }
-D3CirclePackingBubbleChartExampleComponent class >> modelMock [
+D3SCirclePackingBubbleChartExampleComponent class >> modelMock [
 
 	"Returns an Array of Dictionaries with an example for this chart"
 
@@ -62,7 +62,7 @@ D3CirclePackingBubbleChartExampleComponent class >> modelMock [
 ]
 
 { #category : #mocking }
-D3CirclePackingBubbleChartExampleComponent class >> optionsMock [
+D3SCirclePackingBubbleChartExampleComponent class >> optionsMock [
 
 	| style options margin stroke color |
 	
@@ -83,13 +83,13 @@ D3CirclePackingBubbleChartExampleComponent class >> optionsMock [
 ]
 
 { #category : #accessing }
-D3CirclePackingBubbleChartExampleComponent >> children [
+D3SCirclePackingBubbleChartExampleComponent >> children [
 
 	^ { graph }
 ]
 
 { #category : #initialization }
-D3CirclePackingBubbleChartExampleComponent >> initialize [
+D3SCirclePackingBubbleChartExampleComponent >> initialize [
 
 	| model option |
 	super initialize.
@@ -101,7 +101,7 @@ D3CirclePackingBubbleChartExampleComponent >> initialize [
 ]
 
 { #category : #rendering }
-D3CirclePackingBubbleChartExampleComponent >> renderContentOn: anHtmlCanvas [
+D3SCirclePackingBubbleChartExampleComponent >> renderContentOn: anHtmlCanvas [
 
 	anHtmlCanvas render: graph.
 ]

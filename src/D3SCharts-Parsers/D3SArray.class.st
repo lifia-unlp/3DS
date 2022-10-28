@@ -1,39 +1,39 @@
 Class {
-	#name : #Array3DS,
+	#name : #D3SArray,
 	#superclass : #Object,
 	#instVars : [
 		'array'
 	],
-	#category : #D3SCharts
+	#category : #'D3SCharts-Parsers'
 }
 
 { #category : #'instance creation' }
-Array3DS class >> new: anIntSize [
+D3SArray class >> new: anIntSize [
 	^ self new
 		array: (OrderedCollection new: anIntSize);
 		yourself
 ]
 
 { #category : #adding }
-Array3DS >> add: anObject [
+D3SArray >> add: anObject [
 
 	array add: anObject.
 ]
 
 { #category : #accessing }
-Array3DS >> array: aCollection [
+D3SArray >> array: aCollection [
 
 	array := aCollection.
 ]
 
 { #category : #initialization }
-Array3DS >> initialize [
+D3SArray >> initialize [
    super initialize. 
 	array := OrderedCollection new.
 ]
 
 { #category : #printing }
-Array3DS >> printModel [
+D3SArray >> printModel [
 
 	"Returns the string in JSON format of the array"
 
@@ -51,7 +51,7 @@ Array3DS >> printModel [
 ]
 
 { #category : #printing }
-Array3DS >> printString [
+D3SArray >> printString [
 
 	"Returns the string in JSON format of the array"
 

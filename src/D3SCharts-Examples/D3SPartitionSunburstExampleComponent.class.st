@@ -1,5 +1,5 @@
 Class {
-	#name : #D3ForceDirectedGraphExampleComponent,
+	#name : #D3SPartitionSunburstExampleComponent,
 	#superclass : #WAComponent,
 	#instVars : [
 		'graph'
@@ -8,23 +8,23 @@ Class {
 }
 
 { #category : #accessing }
-D3ForceDirectedGraphExampleComponent >> children [
+D3SPartitionSunburstExampleComponent >> children [
 
 	^ { graph }
 ]
 
 { #category : #initialization }
-D3ForceDirectedGraphExampleComponent >> initialize [
+D3SPartitionSunburstExampleComponent >> initialize [
 
 	super initialize.
-	graph := D3SForceDirectedGraphComponent new
+	graph := D3SPartitionSunburstComponent  new
 		                        height: 900;
 		                        width: 900;
 		                        yourself.
 ]
 
 { #category : #rendering }
-D3ForceDirectedGraphExampleComponent >> renderContentOn: anHtmlCanvas [
+D3SPartitionSunburstExampleComponent >> renderContentOn: anHtmlCanvas [
 
 	anHtmlCanvas render: graph.
 ]

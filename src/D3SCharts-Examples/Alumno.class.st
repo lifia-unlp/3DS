@@ -1,6 +1,6 @@
 Class {
 	#name : #Alumno,
-	#superclass : #Object,
+	#superclass : #D3SChartsDomainExamples,
 	#instVars : [
 		'nombre',
 		'anioCarrera',

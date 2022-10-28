@@ -4,60 +4,6 @@ Class {
 	#category : #D3SCharts
 }
 
-{ #category : #accessing }
-D3SCirclePackingBubbleChartComponent class >> dataMock [
-
-	"Returns an Array of Dictionaries with an example for this chart"
-
-	| model alumno1 alumno2 alumno3 alumno4 alumno5 adapter alumnos cantAlumnos |
-	alumno1 := Alumno
-		           nombre: 'Agustin'
-		           materiasAprobadas: 23
-		           anioInscripcion: 2018
-		           anioCarrera: 4.
-
-	alumno2 := Alumno
-		           nombre: 'Martina'
-		           materiasAprobadas: 3
-		           anioInscripcion: 2021
-		           anioCarrera: 1.
-
-	alumno3 := Alumno
-		           nombre: 'Alejo'
-		           materiasAprobadas: 8
-		           anioInscripcion: 2018
-		           anioCarrera: 3.
-
-	alumno4 := Alumno
-		           nombre: 'Gisela'
-		           materiasAprobadas: 4
-		           anioInscripcion: 2021
-		           anioCarrera: 1.
-
-	alumno5 := Alumno
-		           nombre: 'Gustavo'
-		           materiasAprobadas: 11
-		           anioInscripcion: 2016
-		           anioCarrera: 3.
-
-	alumnos := OrderedCollection new.
-	alumnos
-		add: alumno1;
-		add: alumno2;
-		add: alumno3;
-		add: alumno4;
-		add: alumno5.
-
-	cantAlumnos := alumnos size.
-
-	model := CirclePackingBubbleChartModel new.
-
-	1 to: cantAlumnos do: [ :each | 
-		adapter := AlumnoAdapter withAdaptee: (alumnos at: each).
-		model addBubbleFrom: adapter ].
-	^ model
-]
-
 { #category : #creation }
 D3SCirclePackingBubbleChartComponent class >> model: aCirclePackingBubbleChartModel options: aCirclePackingBubbleChartOption [
 

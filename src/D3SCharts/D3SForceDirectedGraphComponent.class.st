@@ -1,10 +1,6 @@
 Class {
 	#name : #D3SForceDirectedGraphComponent,
 	#superclass : #D3SComponent,
-	#instVars : [
-		'nodes',
-		'links'
-	],
 	#category : #D3SCharts
 }
 
@@ -27,11 +23,11 @@ valueArray := #( 1 8 10 6 1 1 1 1 2 1 1 3 3 5 1 1 1 1 4 4 4 4 4 4 3 3 3 4 3 3 3 
 ).
 
 
-    linksMock := Array3DS new.
+    linksMock := D3SArray new.
     arrayCount := sourceArray size.
 
     1 to: arrayCount do: [ :each | 
-        linkMock := Dictionary3DS new.
+        linkMock := D3SDictionary new.
         linkMock addKey: 'source' withValue: (sourceArray at: each);
             addKey: 'target' withValue: (targetArray at: each);
             addKey: 'value' withValue: (valueArray at: each).
@@ -133,11 +129,11 @@ D3SForceDirectedGraphComponent class >> graphNodesMock [
                         ).
 
 
-    nodesMock := Array3DS new.
+    nodesMock := D3SArray new.
     arrayCount := idArrayMock size.
 
     1 to: arrayCount do: [ :each | 
-        nodeMock := Dictionary3DS new.
+        nodeMock := D3SDictionary new.
         nodeMock addKey: 'id' withValue: (idArrayMock at: each);
         		addKey: 'group' withValue: (groupArrayMock at: each).
         nodesMock add: nodeMock.
@@ -146,12 +142,13 @@ D3SForceDirectedGraphComponent class >> graphNodesMock [
     ^ nodesMock
 ]
 
-{ #category : #accessing }
-D3SForceDirectedGraphComponent class >> nodes: anArrayOfNodes links: anArrayOfLinks [ 
+{ #category : #creation }
+D3SForceDirectedGraphComponent class >> model: aForceDirectedChartModel options: aForceDirectedChartOption [
+
 	^ self new
-		nodes: anArrayOfNodes
-		links: anArrayOfLinks;
-		yourself
+		  model: aForceDirectedChartModel;
+		  options: aForceDirectedChartOption;
+		  yourself
 ]
 
 { #category : #accessing }
@@ -160,25 +157,19 @@ D3SForceDirectedGraphComponent >> graphDataString [
 	 nodes, // an iterable of node objects (typically [{id}, …])
     links // an iterable of link objects (typically [{source, target}, …])"
 
-	| stream data |
-	
-	data := Dictionary3DS new.
-   data addKey: 'nodes' withChildren: nodes;
-   		addKey: 'links' withChildren: links.
-	
+	| stream |
 	stream := String new writeStream.
-	stream nextPutAll: data printString.
+	stream nextPutAll: model printModel.
 
 	^ stream contents
 ]
 
 { #category : #initialization }
 D3SForceDirectedGraphComponent >> initialize [
-   super initialize. 
-	width := 900.
-	height := 900.
-	nodes := self class graphNodesMock.
-	links := self class graphLinksMock.
+
+	super initialize.
+	options := ''.
+	model := ''
 ]
 
 { #category : #script }
@@ -192,8 +183,8 @@ chart = ForceGraph(dataGraph, {
   nodeGroup: d => d.group,
   nodeTitle: d => `${d.id}\n${d.group}`,
   linkStrokeWidth: l => Math.sqrt(l.value),
-  width: ', width printString,',
-  height: ', height printString ,'
+  width: ', 100 printString,',
+  height: ', 100 printString ,'
 })
 
 document.getElementById(''', anId , ''').append(chart);
@@ -336,28 +327,6 @@ function ForceGraph({
 }'
 ]
 
-{ #category : #accessing }
-D3SForceDirectedGraphComponent >> links [
-	^ links
-]
-
-{ #category : #accessing }
-D3SForceDirectedGraphComponent >> links: anArray [
- "Links must be an Array of Dictionaries with the format [{source, target, value}]"
-	links := anArray
-]
-
-{ #category : #accessing }
-D3SForceDirectedGraphComponent >> nodes [
-	^ nodes
-]
-
-{ #category : #accessing }
-D3SForceDirectedGraphComponent >> nodes: anArray [
- "Nodes must be an Array of Dictionaries with the format [{id, group}]"
-	nodes := anArray
-]
-
 { #category : #rendering }
 D3SForceDirectedGraphComponent >> renderContentOn: html [
 
@@ -366,7 +335,7 @@ D3SForceDirectedGraphComponent >> renderContentOn: html [
 	html div
 		id: divId;
 		style:
-			'width: ' , width printString , 'px; height: ' , height printString
+			'width: ' , 100 printString , 'px; height: ' , 100 printString
 			, 'px;'.
 	html script: (self jsForDivId: divId).
 ]

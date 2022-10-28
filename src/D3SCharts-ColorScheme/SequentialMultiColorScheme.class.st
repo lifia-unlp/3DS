@@ -1,7 +1,7 @@
 Class {
 	#name : #SequentialMultiColorScheme,
-	#superclass : #D3ColorScheme,
-	#category : #D3SCharts
+	#superclass : #D3SColorScheme,
+	#category : #'D3SCharts-ColorScheme'
 }
 
 { #category : #printing }

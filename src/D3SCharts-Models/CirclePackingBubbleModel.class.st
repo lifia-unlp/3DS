@@ -1,6 +1,6 @@
 Class {
 	#name : #CirclePackingBubbleModel,
-	#superclass : #Object,
+	#superclass : #D3SModel,
 	#instVars : [
 		'name',
 		'bubbleValue',
@@ -60,6 +60,13 @@ CirclePackingBubbleModel >> group: aValue [
 	group := aValue
 ]
 
+{ #category : #initialization }
+CirclePackingBubbleModel >> initialize [
+
+	super initialize.
+	model := D3SDictionary new.
+]
+
 { #category : #'accessing - private' }
 CirclePackingBubbleModel >> link [
 
@@ -89,8 +96,6 @@ CirclePackingBubbleModel >> model [
 
 	"Returns the info model in a dictionary that represents de JSON data for chart"
 
-	| model |
-	model := Dictionary3DS new.
 	model
 		addKey: 'name' withValue: name;
 		addKey: 'label' withValue: name;

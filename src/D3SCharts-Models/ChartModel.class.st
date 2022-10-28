@@ -2,12 +2,26 @@ Class {
 	#name : #ChartModel,
 	#superclass : #Object,
 	#instVars : [
-		'adapter'
+		'chartModel'
 	],
 	#category : #'D3SCharts-Models'
 }
 
+{ #category : #'accessing - private' }
+ChartModel >> chartModel [
+
+	^ chartModel
+]
+
+{ #category : #'accessing - private' }
+ChartModel >> chartModel: aChartModel [
+
+	chartModel := aChartModel
+]
+
 { #category : #printing }
 ChartModel >> printModel [
-	self subclassResponsibility.
+	"Returns the model information in JSON format, added in the chart"
+
+	^ chartModel printModel
 ]

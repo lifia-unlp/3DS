@@ -1,31 +1,28 @@
+"
+I represent the adapter protocol for the CirclePackingBubbleChart's domain objects that must to conform
+
+My main responsibilities - I set that messages must to answer the adapter
+
+Public API and Key Messages
+
+ 	- (abstract) label 
+	- (abstract) group
+	- (abstract) bubbleValue
+	- (abstract) title
+	- (abstract) name
+	- (abstract) link 
+	- (abstract) linkTarget
+
+	- how to create instances:
+	
+ 		adapter := CirclePackingBubbleChartAdapter withAdaptee: anObjectToAdapt
+
+"
 Class {
 	#name : #CirclePackingBubbleChartAdapter,
-	#superclass : #Object,
-	#instVars : [
-		'adaptee'
-	],
+	#superclass : #D3SChartAdapter,
 	#category : #'D3SCharts-Adapters'
 }
-
-{ #category : #creation }
-CirclePackingBubbleChartAdapter class >> withAdaptee: anAdaptee [
-
-	^ self new
-		  adaptee: anAdaptee;
-		  yourself
-]
-
-{ #category : #accessing }
-CirclePackingBubbleChartAdapter >> adaptee [
-
-	^ adaptee
-]
-
-{ #category : #accessing }
-CirclePackingBubbleChartAdapter >> adaptee: anObject [
-
-	adaptee := anObject
-]
 
 { #category : #accessing }
 CirclePackingBubbleChartAdapter >> bubbleValue [
