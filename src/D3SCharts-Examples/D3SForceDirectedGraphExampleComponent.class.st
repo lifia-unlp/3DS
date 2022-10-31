@@ -12,7 +12,7 @@ D3SForceDirectedGraphExampleComponent class >> modelMock [
 
 	"Returns an Array of Dictionaries with an example for this chart"
 
-	| model persona1 persona2 persona3 persona4 persona5 adapter personas cantPersonas |
+	| model persona1 persona2 persona3 persona4 persona5 persona6 persona7 persona8 persona9 adapter personas cantPersonas |
 	
 	persona1 := Persona dni: '17666333' nombre: 'Pablo' apellido: 'Dario'.
 	
@@ -23,6 +23,14 @@ D3SForceDirectedGraphExampleComponent class >> modelMock [
 	persona4 := Persona dni: '40333222' nombre: 'Diego' apellido: 'Martinez'.
 
 	persona5 := Persona dni: '34655444' nombre: 'Laura' apellido: 'Delfino'.
+	
+	persona6 := Persona dni: '33222111' nombre: 'Lucas' apellido: 'Perez'.
+	
+	persona7 := Persona dni: '34699444' nombre: 'Agustin' apellido: 'Perez'.
+	
+	persona8 := Persona dni: '34444999' nombre: 'Mario' apellido: 'Perez'.
+	
+	persona9 := Persona dni: '29000111' nombre: 'Tomas' apellido: 'Armando'.
 
 	personas := OrderedCollection new.
 
@@ -31,7 +39,11 @@ D3SForceDirectedGraphExampleComponent class >> modelMock [
 		add: persona2;
 		add: persona3;
 		add: persona4;
-		add: persona5.
+		add: persona5;
+		add: persona6;
+		add: persona7;
+		add: persona8;
+		add: persona9.
 
 	cantPersonas := personas size.
 
@@ -41,36 +53,42 @@ D3SForceDirectedGraphExampleComponent class >> modelMock [
 		adapter := PersonaNodeAdapter withAdaptee: (personas at: each).
 		model addNodeFrom: adapter ].
 
-	adapter := PersonaLinkAdapter
+
+	model addLinkFrom: (PersonaLinkAdapter
 		           withAdaptee: persona1
-		           withAdapteeTarget: persona2.
+		           withAdapteeTarget: persona2).
 
-	model addLinkFrom: adapter.
-
-	adapter := PersonaLinkAdapter
+	model addLinkFrom: (PersonaLinkAdapter
 		           withAdaptee: persona1
-		           withAdapteeTarget: persona3.
+		           withAdapteeTarget: persona3).
 
-	model addLinkFrom: adapter.
-
-	adapter := PersonaLinkAdapter
+	model addLinkFrom: (PersonaLinkAdapter
 		           withAdaptee: persona3
-		           withAdapteeTarget: persona2.
+		           withAdapteeTarget: persona2).
 
-	model addLinkFrom: adapter.
-
-	adapter := PersonaLinkAdapter
+	model addLinkFrom: (PersonaLinkAdapter
 		           withAdaptee: persona4
-		           withAdapteeTarget: persona5.
+		           withAdapteeTarget: persona5).
 
-	model addLinkFrom: adapter.
-
-	adapter := PersonaLinkAdapter
+	model addLinkFrom: (PersonaLinkAdapter
 		           withAdaptee: persona3
-		           withAdapteeTarget: persona4.
+		           withAdapteeTarget: persona4).
+		
+	model addLinkFrom: (PersonaLinkAdapter
+		           withAdaptee: persona2
+		           withAdapteeTarget: persona6).
+		
+	model addLinkFrom: (PersonaLinkAdapter
+		           withAdaptee: persona6
+		           withAdapteeTarget: persona7).
+		
+	model addLinkFrom: (PersonaLinkAdapter
+		           withAdaptee: persona7
+		           withAdapteeTarget: persona8).
 
-	model addLinkFrom: adapter.
-
+	model addLinkFrom: (PersonaLinkAdapter
+		           withAdaptee: persona6
+		           withAdapteeTarget: persona9).
 	^ model
 ]
 

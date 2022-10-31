@@ -66,7 +66,7 @@ D3SCirclePackingBubbleChartExampleComponent class >> optionsMock [
 
 	| style options margin stroke color |
 	
-	color := CirclePackingBubbleSchemeColor colors: (Tableau10ColorScheme new).
+	color := CirclePackingBubbleSchemeColor colors: (Pastel1ColorScheme new).
 	
 	margin := ChartMarginOption margin: 10.
 
