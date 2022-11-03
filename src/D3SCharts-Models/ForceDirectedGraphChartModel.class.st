@@ -1,3 +1,16 @@
+"
+I represent a protocol that the Force-Directed Graph Chart's model must to conform
+
+My main responsibilities - I represent all the information that must be added to the data model for graph representation
+
+Public API and Key Messages
+
+- addLinkFrom: aCirclePackingBubbleChartAdapter => add link's model from another class adapted for this chart
+
+- addNodeFrom: aCirclePackingBubbleChartAdapter => add node's model from another class adapted for this chart
+
+- printModel => representation of graph information
+"
 Class {
 	#name : #ForceDirectedGraphChartModel,
 	#superclass : #ChartModel,
@@ -29,7 +42,8 @@ ForceDirectedGraphChartModel >> addNodeFrom: aNodeGraphAdapter [
 	| node |
 	node := NodeGraphModel
 		        id: aNodeGraphAdapter id
-		        group: aNodeGraphAdapter group.
+		        group: aNodeGraphAdapter group
+		        title: aNodeGraphAdapter title.
 	nodes add: node
 ]
 

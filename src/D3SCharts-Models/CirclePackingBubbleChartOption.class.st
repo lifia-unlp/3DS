@@ -1,9 +1,22 @@
+"
+I represent a protocol that the Circle Packing Bubble Chart's option must to conform
+
+My main responsibilities - I represent all the information that must be added to the data options for graph representation
+
+Public API and Key Messages
+
+  - printOptions => representation of graph's options information
+
+
+How to create instances:
+	
+ 	options := CirclePackingBubbleChartOption style: aChartStyleOption margin: aChartMarginOption colorScheme: aChartColorSchemeOption stroke: aChartStrokeOption
+"
 Class {
 	#name : #CirclePackingBubbleChartOption,
 	#superclass : #ChartOption,
 	#instVars : [
 		'margin',
-		'colorScheme',
 		'stroke'
 	],
 	#category : #'D3SCharts-Models'
@@ -18,20 +31,6 @@ CirclePackingBubbleChartOption class >> style: aChartStyleOption margin: aChartM
 		  margin: aChartMarginOption;
 		  stroke: aChartStrokeOption;
 		  yourself
-]
-
-{ #category : #accessing }
-CirclePackingBubbleChartOption >> colorScheme [
-
-	"returns an array of colors (for groups)"
-
-	^ colorScheme printColorScheme
-]
-
-{ #category : #accessing }
-CirclePackingBubbleChartOption >> colorScheme: anObject [
-
-	colorScheme := anObject
 ]
 
 { #category : #accessing }

@@ -1,3 +1,19 @@
+"
+I represent an adapter of the Persona class for chart's examples
+
+My main responsibilities - I comform all the message's protocol for the ForceDirectedLinkGraphChartAdapter
+
+Public API and Key Messages
+	- linkValue => link weight
+	- source => node's origin information
+	- target => node's destination information
+
+
+- how to create instances:
+
+ adapter := PersonaLinkAdapter withAdaptee: aPersonaSource withAdapteeTarget: aPersonaTarget
+
+"
 Class {
 	#name : #PersonaLinkAdapter,
 	#superclass : #ForceDirectedLinkGraphChartAdapter,

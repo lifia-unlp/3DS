@@ -9,29 +9,13 @@ Class {
 	#category : #'D3SCharts-Options'
 }
 
-{ #category : #creation }
-ChartStrokeOption class >> stroke: aValue [
-
-	^ self stroke: aValue opacity: 0.7 width: 100
-]
-
-{ #category : #creation }
-ChartStrokeOption class >> stroke: aValue opacity: aOpacityValue width: aWidthValue [
-
-	^ self new
-		  stroke: aValue;
-		  opacity: aOpacityValue;
-		  width: aWidthValue;
-		  yourself
-]
-
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 ChartStrokeOption >> opacity [
 
 	^ opacity
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 ChartStrokeOption >> opacity: anObject [
 
 	opacity := anObject
@@ -40,31 +24,28 @@ ChartStrokeOption >> opacity: anObject [
 { #category : #printing }
 ChartStrokeOption >> printStrokeOptions [
 
-^ '
-  stroke:', stroke printString,',
-  strokeWidth:', width printString ,',
-  strokeOpacity:', opacity printString ,','
+	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 ChartStrokeOption >> stroke [
 
 	^ stroke
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 ChartStrokeOption >> stroke: anObject [
 
 	stroke := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 ChartStrokeOption >> width [
 
 	^ width
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 ChartStrokeOption >> width: anObject [
 
 	width := anObject

@@ -1,8 +1,18 @@
+"
+I represent a protocol that the bubble model must to conform to generate the information for Circle Packing Bubble Chart's model
+
+My main responsibilities - I represent all the information that must be added to the bubble model for graph representation
+
+Public API and Key Messages
+
+- model => representation of graph information in JSON format through the D3SCharts-Parsers
+"
 Class {
 	#name : #CirclePackingBubbleModel,
 	#superclass : #D3SModel,
 	#instVars : [
 		'name',
+		'label',
 		'bubbleValue',
 		'group',
 		'title',
@@ -13,10 +23,11 @@ Class {
 }
 
 { #category : #creation }
-CirclePackingBubbleModel class >> name: aNameText value: aValue group: aGroupValue title: aTitleText [
+CirclePackingBubbleModel class >> name: aNameText label: aLabelText value: aValue group: aGroupValue title: aTitleText [
 
 	^ self new
 		  name: aNameText;
+		  label: aLabelText;
 		  bubbleValue: aValue;
 		  group: aGroupValue;
 		  title: aTitleText;
@@ -24,10 +35,11 @@ CirclePackingBubbleModel class >> name: aNameText value: aValue group: aGroupVal
 ]
 
 { #category : #creation }
-CirclePackingBubbleModel class >> name: aNameText value: aValue group: aGroupValue title: aTitleText link: aLink linkTarget: aLinkTarget [
+CirclePackingBubbleModel class >> name: aNameText label: aLabelText value: aValue group: aGroupValue title: aTitleText link: aLink linkTarget: aLinkTarget [
 
 	^ self new
 		  name: aNameText;
+		  label: aLabelText;
 		  bubbleValue: aValue;
 		  group: aGroupValue;
 		  title: aTitleText;
@@ -67,6 +79,18 @@ CirclePackingBubbleModel >> initialize [
 	model := D3SDictionary new.
 ]
 
+{ #category : #accessing }
+CirclePackingBubbleModel >> label [
+
+	^ label
+]
+
+{ #category : #accessing }
+CirclePackingBubbleModel >> label: anObject [
+
+	label := anObject
+]
+
 { #category : #'accessing - private' }
 CirclePackingBubbleModel >> link [
 
@@ -98,7 +122,7 @@ CirclePackingBubbleModel >> model [
 
 	model
 		addKey: 'name' withValue: name;
-		addKey: 'label' withValue: name;
+		addKey: 'label' withValue: label;
 		addKey: 'value' withValue: bubbleValue;
 		addKey: 'title' withValue: title;
 		addKey: 'group' withValue: group;

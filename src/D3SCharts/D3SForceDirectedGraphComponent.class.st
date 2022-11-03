@@ -178,14 +178,7 @@ D3SForceDirectedGraphComponent >> jsForDivId: anId [
 	^ '
 	dataGraph = ', self graphDataString , ';
 	
-chart = ForceGraph(dataGraph, {
-  nodeId: d => d.id,
-  nodeGroup: d => d.group,
-  nodeTitle: d => `${d.id}\n${d.group}`,
-  linkStrokeWidth: l => Math.sqrt(l.value),
-  width: ', 100 printString,',
-  height: ', 100 printString ,'
-})
+chart = ForceGraph(dataGraph,', self options ,')
 
 document.getElementById(''', anId , ''').append(chart);
 	
@@ -334,8 +327,6 @@ D3SForceDirectedGraphComponent >> renderContentOn: html [
 	divId := html nextId.
 	html div
 		id: divId;
-		style:
-			'width: ' , 100 printString , 'px; height: ' , 100 printString
-			, 'px;'.
+		style: 'width: ' , self width , 'px; height: ' , self height , 'px;'.
 	html script: (self jsForDivId: divId).
 ]

@@ -1,3 +1,12 @@
+"
+I represent a protocol that the link model must to conform to generate the information for Force-Directed Graph Chart's model
+
+My main responsibilities - I represent all the information that must be added to the link model for graph representation
+
+Public API and Key Messages
+
+- model => representation of graph information in JSON format through the D3SCharts-Parsers
+"
 Class {
 	#name : #LinkGraphModel,
 	#superclass : #D3SModel,

@@ -32,7 +32,7 @@ AlumnoAdapter >> bubbleValue [
 { #category : #accessing }
 AlumnoAdapter >> group [
 
-	^ adaptee anioCarrera printString
+	^ adaptee anioCarrera 
 ]
 
 { #category : #accessing }
@@ -43,8 +43,8 @@ AlumnoAdapter >> label [
 	stream
 		nextPutAll: adaptee nombre;
 		nextPutAll: ' \n';
-		nextPutAll: ' Año Ingreso: ';
-		nextPutAll: adaptee anioInscripcion.
+		nextPutAll: ' Materias Aprobadas: ';
+		nextPutAll: adaptee materiasAprobadas.
 
 	^ stream contents
 ]

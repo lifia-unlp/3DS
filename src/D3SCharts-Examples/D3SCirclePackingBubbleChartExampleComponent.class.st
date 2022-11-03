@@ -70,7 +70,7 @@ D3SCirclePackingBubbleChartExampleComponent class >> optionsMock [
 	
 	margin := ChartMarginOption margin: 10.
 
-	stroke := ChartStrokeOption stroke: 1.
+	stroke := BubbleStrokeOption stroke: 1.
 
 	style := ChartStyleOption width: 600 height: 800 padding: 10.
 

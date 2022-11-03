@@ -33,3 +33,11 @@ ForceDirectedNodeGraphChartAdapter >> id [
 
 	self subclassResponsibility
 ]
+
+{ #category : #accessing }
+ForceDirectedNodeGraphChartAdapter >> title [
+
+	"Returns the title to show in the node when hover it"
+
+	self subclassResponsibility
+]

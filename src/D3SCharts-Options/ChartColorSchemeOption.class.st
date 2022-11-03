@@ -21,5 +21,6 @@ ChartColorSchemeOption >> colors: anObject [
 
 { #category : #printing }
 ChartColorSchemeOption >> printColorScheme [
-	self subclassResponsibility.
+
+	self subclassResponsibility
 ]

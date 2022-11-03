@@ -24,7 +24,7 @@ Alumno class >> nombre: aNameText materiasAprobadas: aValue anioInscripcion: aYe
 { #category : #accessing }
 Alumno >> anioCarrera [
 
-	^ anioCarrera
+	^ anioCarrera printString
 ]
 
 { #category : #accessing }
@@ -48,7 +48,7 @@ Alumno >> anioInscripcion: anObject [
 { #category : #accessing }
 Alumno >> materiasAprobadas [
 
-	^ materiasAprobadas
+	^ materiasAprobadas printString
 ]
 
 { #category : #accessing }

@@ -21,12 +21,12 @@ CirclePackingBubbleSchemeColor class >> colors: aD3ColorScheme [
 ]
 
 { #category : #creation }
-CirclePackingBubbleSchemeColor class >> colors: aD3ColorScheme groups: aGroupsColor fill: aBottomMarginValue fillOpacity: aOpacityValue [
+CirclePackingBubbleSchemeColor class >> colors: aD3ColorScheme groups: aGroupsColor fill: aFillValue fillOpacity: aOpacityValue [
 
 	^ self new
 		  colors: aD3ColorScheme;
 		  groups: aGroupsColor;
-		  fill: aBottomMarginValue;
+		  fill: aFillValue;
 		  fillOpacity: aOpacityValue;
 		  yourself
 ]

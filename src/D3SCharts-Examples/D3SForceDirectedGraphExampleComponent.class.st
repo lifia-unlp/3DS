@@ -95,7 +95,21 @@ D3SForceDirectedGraphExampleComponent class >> modelMock [
 { #category : #mocking }
 D3SForceDirectedGraphExampleComponent class >> optionsMock [
 
-	^''
+	| style options color nodeStroke linkStroke |
+	color := ForceDirectedGraphSchemeColor colors: Pastel1ColorScheme new.
+
+	nodeStroke := NodeStrokeOption stroke: '#fff'.
+
+	linkStroke := LinkStrokeOption stroke: '#999'.
+
+	style := ChartStyleOption width: 600 height: 600.
+
+	options := ForceDirectedGraphChartOption
+		           style: style
+		           colorScheme: color
+		           nodeStroke: nodeStroke
+		           linkStroke: linkStroke.
+	^ options
 ]
 
 { #category : #accessing }
