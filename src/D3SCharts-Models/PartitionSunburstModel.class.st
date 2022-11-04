@@ -108,6 +108,25 @@ PartitionSunburstModel >> linkTarget: anObject [
 	linkTarget := anObject
 ]
 
+{ #category : #accessing }
+PartitionSunburstModel >> model [
+
+	"Returns the info model in a dictionary that represents de JSON data for chart"
+
+	model
+		addKey: 'name' withValue: name;
+		addKey: 'label' withValue: label;
+		addKey: 'title' withValue: title;
+		addKey: 'link' withValue: link;
+		addKey: 'linkTarget' withValue: linkTarget.
+
+	children
+		ifNotNil: [ model addKey: 'children' withValue: self children ]
+		ifNil: [ model addKey: 'value' withValue: self sizeValue ].
+
+	^ model printString
+]
+
 { #category : #'accessing - private' }
 PartitionSunburstModel >> name [
 
