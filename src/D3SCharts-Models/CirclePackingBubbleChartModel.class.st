@@ -29,6 +29,7 @@ CirclePackingBubbleChartModel >> addBubbleFrom: aCirclePackingBubbleChartAdapter
 		          title: aCirclePackingBubbleChartAdapter title
 		          link: aCirclePackingBubbleChartAdapter link
 		          linkTarget: aCirclePackingBubbleChartAdapter linkTarget.
+		
 	chartModel add: bubble
 ]
 

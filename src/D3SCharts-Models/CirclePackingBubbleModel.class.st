@@ -23,18 +23,6 @@ Class {
 }
 
 { #category : #creation }
-CirclePackingBubbleModel class >> name: aNameText label: aLabelText value: aValue group: aGroupValue title: aTitleText [
-
-	^ self new
-		  name: aNameText;
-		  label: aLabelText;
-		  bubbleValue: aValue;
-		  group: aGroupValue;
-		  title: aTitleText;
-		  yourself
-]
-
-{ #category : #creation }
 CirclePackingBubbleModel class >> name: aNameText label: aLabelText value: aValue group: aGroupValue title: aTitleText link: aLink linkTarget: aLinkTarget [
 
 	^ self new

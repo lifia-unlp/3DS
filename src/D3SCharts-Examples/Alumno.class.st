@@ -2,7 +2,7 @@ Class {
 	#name : #Alumno,
 	#superclass : #D3SChartsDomainExamples,
 	#instVars : [
-		'nombre',
+		'nombreCompleto',
 		'anioCarrera',
 		'materiasAprobadas',
 		'anioInscripcion'
@@ -11,10 +11,10 @@ Class {
 }
 
 { #category : #creation }
-Alumno class >> nombre: aNameText materiasAprobadas: aValue anioInscripcion: aYear anioCarrera: aCarreerYear [
+Alumno class >> nombreCompleto: aFullNameText materiasAprobadas: aValue anioInscripcion: aYear anioCarrera: aCarreerYear [
 
 	^ self new
-		  nombre: aNameText;
+		  nombreCompleto: aFullNameText;
 		  materiasAprobadas: aValue;
 		  anioInscripcion: aYear;
 		  anioCarrera: aCarreerYear;
@@ -58,13 +58,13 @@ Alumno >> materiasAprobadas: anObject [
 ]
 
 { #category : #accessing }
-Alumno >> nombre [
+Alumno >> nombreCompleto [
 
-	^ nombre
+	^ nombreCompleto 
 ]
 
 { #category : #accessing }
-Alumno >> nombre: anObject [
+Alumno >> nombreCompleto: aFullNameText [
 
-	nombre := anObject
+	nombreCompleto := aFullNameText
 ]

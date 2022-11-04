@@ -14,31 +14,31 @@ D3SCirclePackingBubbleChartExampleComponent class >> modelMock [
 
 	| model alumno1 alumno2 alumno3 alumno4 alumno5 adapter alumnos cantAlumnos |
 	alumno1 := Alumno
-		           nombre: 'Agustin'
+		           nombreCompleto: 'Agustin'
 		           materiasAprobadas: 23
 		           anioInscripcion: 2018
 		           anioCarrera: 4.
 
 	alumno2 := Alumno
-		           nombre: 'Martina'
+		           nombreCompleto: 'Martina'
 		           materiasAprobadas: 3
 		           anioInscripcion: 2021
 		           anioCarrera: 1.
 
 	alumno3 := Alumno
-		           nombre: 'Alejo'
+		           nombreCompleto: 'Alejo'
 		           materiasAprobadas: 8
 		           anioInscripcion: 2018
 		           anioCarrera: 3.
 
 	alumno4 := Alumno
-		           nombre: 'Gisela'
+		           nombreCompleto: 'Gisela'
 		           materiasAprobadas: 4
 		           anioInscripcion: 2021
 		           anioCarrera: 1.
 
 	alumno5 := Alumno
-		           nombre: 'Gustavo'
+		           nombreCompleto: 'Gustavo'
 		           materiasAprobadas: 11
 		           anioInscripcion: 2016
 		           anioCarrera: 3.

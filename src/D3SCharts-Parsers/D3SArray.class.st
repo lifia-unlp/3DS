@@ -67,3 +67,9 @@ D3SArray >> printString [
 
 	^ stream contents
 ]
+
+{ #category : #accessing }
+D3SArray >> size [
+
+	^ array size
+]

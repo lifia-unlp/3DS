@@ -41,7 +41,7 @@ AlumnoAdapter >> label [
 	| stream |
 	stream := String new writeStream.
 	stream
-		nextPutAll: adaptee nombre;
+		nextPutAll: adaptee nombreCompleto;
 		nextPutAll: ' \n';
 		nextPutAll: ' Materias Aprobadas: ';
 		nextPutAll: adaptee materiasAprobadas.
@@ -67,7 +67,7 @@ AlumnoAdapter >> name [
 	| stream |
 	stream := String new writeStream.
 	stream
-		nextPutAll: adaptee nombre;
+		nextPutAll: adaptee nombreCompleto;
 		nextPutAll: ' \n';
 		nextPutAll: ' Año Ingreso: ';
 		nextPutAll: adaptee anioInscripcion.

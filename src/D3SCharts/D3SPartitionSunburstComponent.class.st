@@ -1,493 +1,39 @@
 Class {
 	#name : #D3SPartitionSunburstComponent,
 	#superclass : #D3SComponent,
-	#instVars : [
-		'data'
-	],
 	#category : #D3SCharts
 }
 
-{ #category : #accessing }
-D3SPartitionSunburstComponent class >> data: aDictionary [
+{ #category : #creation }
+D3SPartitionSunburstComponent class >> model: aPartitionSunburstChartModel options: aPartitionSunburstChartOption [
+
 	^ self new
-		data: aDictionary;
-		yourself
-]
-
-{ #category : #accessing }
-D3SPartitionSunburstComponent class >> dataMock [
-    "Returns a Dictionary with an Array of Dictionaries (Like a Tree struct) with an example for this chart"
-
-    | coreMock coreChildrenMock coreOptionsMock coreSubOptionMock childrensMock childrenMock dataMock |
-
-    coreChildrenMock := D3SArray new.
-
-    childrenMock := D3SArray new.
-    coreSubOptionMock := D3SArray new.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'AgglomerativeCluster';
-        addKey: 'size' withValue: 3938.
-        
-    childrenMock add: dataMock.
-    
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'CommunityStructure';
-        addKey: 'size' withValue: 3812.
-        
-    childrenMock add: dataMock.
-    
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'HierarchicalCluster';
-        addKey: 'size' withValue: 6714.
-        
-    childrenMock add: dataMock.
-   
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'MergeEdge';
-        addKey: 'size' withValue: 743.
-        
-    childrenMock add: dataMock.
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'cluster';
-        addKey: 'children'  withChildren: childrenMock.
-        
-    coreSubOptionMock add: childrensMock.
-   
-   " --- Reset variable to create new data ---"
-
-    childrenMock := D3SArray new.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'BetweennessCentrality';
-        addKey: 'size' withValue: 5731.
-        
-    childrenMock add: dataMock.
-    
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'LinkDistance';
-        addKey: 'size' withValue: 3812.
-        
-    childrenMock add: dataMock.
-    
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'MaxFlowMinCut';
-        addKey: 'size' withValue: 5914.
-        
-    childrenMock add: dataMock.
-   
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'ShortestPaths';
-        addKey: 'size' withValue: 743.
-        
-    childrenMock add: dataMock.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'SpanningTree';
-        addKey: 'size' withValue: 3416.
-        
-    childrenMock add: dataMock.
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'graph';
-        addKey: 'children'  withChildren: childrenMock.
-        
-    coreSubOptionMock add: childrensMock.
-
-
-   " --- Reset variable to create new data ---"
-
-    childrenMock := D3SArray new.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'AspectRatioBanker';
-        addKey: 'size' withValue: 7074.
-        
-    childrenMock add: dataMock.
-    
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'optimization';
-        addKey: 'children'  withChildren: childrenMock.
-        
-    coreSubOptionMock add: childrensMock.
-
-    coreOptionsMock := D3SDictionary new.
-    coreOptionsMock addKey: 'name'  withValue: 'analytics';
-        addKey: 'children' withChildren: coreSubOptionMock.
-
-    coreChildrenMock add: coreOptionsMock.
-
-    " --- end brach ----------------------------------------------------------------------------------------"
-    " --- new node ----------------------------------------------------------------------------------------"
-
-    childrenMock := D3SArray new.
-    coreSubOptionMock := D3SArray new.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'ArrayInterpolator';
-        addKey: 'size' withValue: 1983.
-        
-    childrenMock add: dataMock.
-    
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'ColorInterpolator';
-        addKey: 'size' withValue: 2047.
-        
-    childrenMock add: dataMock.
-    
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'DateInterpolator';
-        addKey: 'size' withValue: 1375.
-        
-    childrenMock add: dataMock.
-   
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'Interpolator';
-        addKey: 'size' withValue: 8746.
-        
-    childrenMock add: dataMock.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'MatrixInterpolator';
-        addKey: 'size' withValue: 2202.
-        
-    childrenMock add: dataMock.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'NumberInterpolator';
-        addKey: 'size' withValue: 1382.
-        
-    childrenMock add: dataMock.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'ObjectInterpolator';
-        addKey: 'size' withValue: 1629.
-        
-    childrenMock add: dataMock.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'PointInterpolator';
-        addKey: 'size' withValue: 1675.
-        
-    childrenMock add: dataMock.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'RectangleInterpolator';
-        addKey: 'size' withValue: 2042.
-        
-    childrenMock add: dataMock.
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'interpolate';
-        addKey: 'children'  withChildren: childrenMock.
-        
-    coreSubOptionMock add: childrensMock.
-   
-   " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'Easing';
-        addKey: 'size'  withValue: 17010.
-        
-    coreSubOptionMock add: childrensMock.
-
-   " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'FunctionSequence';
-        addKey: 'size'  withValue: 5842.
-        
-    coreSubOptionMock add: childrensMock.
-
-   " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'ISchedulable';
-        addKey: 'size'  withValue: 1041.
-        
-    coreSubOptionMock add: childrensMock.
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'Parallel';
-        addKey: 'size'  withValue: 5176.
-        
-    coreSubOptionMock add: childrensMock.
-
-
-   " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'Pause';
-        addKey: 'size'  withValue: 449.
-        
-    coreSubOptionMock add: childrensMock.
-
-   " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'Scheduler';
-        addKey: 'size'  withValue: 5593.
-        
-    coreSubOptionMock add: childrensMock.
-
-   " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'Sequence';
-        addKey: 'size'  withValue: 5534.
-        
-    coreSubOptionMock add: childrensMock.
-
-   " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'Transition';
-        addKey: 'size'  withValue: 9201.
-        
-    coreSubOptionMock add: childrensMock.
-
-   " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'Transitioner';
-        addKey: 'size'  withValue: 19975.
-        
-    coreSubOptionMock add: childrensMock.
-
-   " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'TransitionEvent';
-        addKey: 'size'  withValue: 1116.
-        
-    coreSubOptionMock add: childrensMock.
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'Tween';
-        addKey: 'size'  withValue: 6006.
-        
-    coreSubOptionMock add: childrensMock.
-
-    coreOptionsMock := D3SDictionary new.
-    coreOptionsMock addKey: 'name'  withValue: 'animate';
-        addKey: 'children' withChildren: coreSubOptionMock.
-
-    coreChildrenMock add: coreOptionsMock.
-
-    " --- end brach ----------------------------------------------------------------------------------------"
-    " --- new node ----------------------------------------------------------------------------------------"
-
-    childrenMock := D3SArray new.
-    coreSubOptionMock := D3SArray new.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'Converters';
-        addKey: 'size' withValue: 721.
-        
-    childrenMock add: dataMock.
-    
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'DelimitedTextConverter';
-        addKey: 'size' withValue: 4294.
-        
-    childrenMock add: dataMock.
-    
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'GraphMLConverter';
-        addKey: 'size' withValue: 9800.
-        
-    childrenMock add: dataMock.
-   
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'IDataConverter';
-        addKey: 'size' withValue: 1314.
-        
-    childrenMock add: dataMock.
-
-    dataMock := D3SDictionary new.
-    dataMock addKey: 'name'  withValue: 'JSONConverter';
-        addKey: 'size' withValue: 2220.
-        
-    childrenMock add: dataMock.
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'converters';
-        addKey: 'children'  withChildren: childrenMock.
-        
-    coreSubOptionMock add: childrensMock.
-
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'DataUtil';
-        addKey: 'size'  withValue: 3322.
-        
-    coreSubOptionMock add: childrensMock.
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'DataTable';
-        addKey: 'size'  withValue: 772.
-        
-    coreSubOptionMock add: childrensMock.
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'DataSource';
-        addKey: 'size'  withValue: 3331.
-        
-    coreSubOptionMock add: childrensMock.
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'DataSet';
-        addKey: 'size'  withValue: 586.
-        
-    coreSubOptionMock add: childrensMock.
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'DataSchema';
-        addKey: 'size'  withValue: 2165.
-        
-    coreSubOptionMock add: childrensMock.
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'DataField';
-        addKey: 'size'  withValue: 1759.
-        
-    coreSubOptionMock add: childrensMock.
-
-    coreOptionsMock := D3SDictionary new.
-    coreOptionsMock addKey: 'name'  withValue: 'data';
-        addKey: 'children' withChildren: coreSubOptionMock.
-
-    coreChildrenMock add: coreOptionsMock.
-
-    " --- end brach ----------------------------------------------------------------------------------------"
-    " --- new node ----------------------------------------------------------------------------------------"
-
-    childrenMock := D3SArray new.
-    coreSubOptionMock := D3SArray new.
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'TextSprite';
-        addKey: 'size'  withValue: 10066.
-        
-    coreSubOptionMock add: childrensMock.
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'RectSprite';
-        addKey: 'size'  withValue: 3623.
-        
-    coreSubOptionMock add: childrensMock.
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'LineSprite';
-        addKey: 'size'  withValue: 1732.
-        
-    coreSubOptionMock add: childrensMock.
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'DirtySprite';
-        addKey: 'size'  withValue: 8833.
-        
-    coreSubOptionMock add: childrensMock.
-
-    coreOptionsMock := D3SDictionary new.
-    coreOptionsMock addKey: 'name'  withValue: 'display';
-        addKey: 'children' withChildren: coreSubOptionMock.
-
-    coreChildrenMock add: coreOptionsMock.
-
-    " --- end brach ----------------------------------------------------------------------------------------"
-
-    " --- new node ----------------------------------------------------------------------------------------"
-
-    childrenMock := D3SArray new.
-    coreSubOptionMock := D3SArray new.
-
-    " --- Reset variable to create new data ---"
-
-    childrensMock := D3SDictionary new.
-    childrensMock addKey: 'name'  withValue: 'FlareVis';
-        addKey: 'size'  withValue: 4116.
-        
-    coreSubOptionMock add: childrensMock.
-
-    coreOptionsMock := D3SDictionary new.
-    coreOptionsMock addKey: 'name'  withValue: 'flex';
-        addKey: 'children' withChildren: coreSubOptionMock.
-
-    coreChildrenMock add: coreOptionsMock.
-
-    " --- end brach ----------------------------------------------------------------------------------------"
-
-
-    coreMock := D3SDictionary new.
-    coreMock addKey: 'name'  withValue: 'flare';
-        addKey: 'children' withChildren: coreChildrenMock.
-
-    ^ coreMock
-
-]
-
-{ #category : #accessing }
-D3SPartitionSunburstComponent >> data [
-	^ data
-]
-
-{ #category : #accessing }
-D3SPartitionSunburstComponent >> data: anObject [
-	data := anObject
+		  model: aPartitionSunburstChartModel;
+		  options: aPartitionSunburstChartOption;
+		  yourself
 ]
 
 { #category : #initialization }
 D3SPartitionSunburstComponent >> initialize [
-   super initialize. 
-	data := self class dataMock.
+
+	super initialize.
+	model := PartitionSunburstChartModel new initialize.
+	options := PartitionSunburstChartOption new
 ]
 
 { #category : #script }
 D3SPartitionSunburstComponent >> jsForDivId: anId [
 
-	^ '
+  ^ '
 flare = ', self sunburstDataString ,';
 
-chart = Sunburst(flare, {
-  value: d => d.size, // size of each node (file); null for internal nodes (folders)
-  label: d => d.name, // display name for each cell
-  title: (d, n) => `${n.ancestors().reverse().map(d => d.data.name).join(".")}\n${n.value.toLocaleString("en")}`, // hover text
-  link: (d, n) => n.children
-    ? `https://github.com/prefuse/Flare/tree/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}`
-    : `https://github.com/prefuse/Flare/blob/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}.as`,
-  width: ', 100 printString , ',
-  height: ', 100 printString , '
-})
+chart = Sunburst(flare, ', self options ,')
 
 console.log(chart);
 
 document.getElementById(''', anId , ''').append(chart);
 
-	
+  
 // Copyright 2021 Observable, Inc.
 // Released under the ISC license.
 // https://observablehq.com/@d3/sunburst
@@ -601,22 +147,17 @@ D3SPartitionSunburstComponent >> renderContentOn: html [
 	divId := html nextId.
 	html div
 		id: divId;
-		style:
-			'width: ' , 100 printString , 'px; height: ' , 100 printString
-			, 'px;'.
+		style: 'width: ' , self width , 'px; height: ' , self height , 'px;'.
 	html script: (self jsForDivId: divId)
 ]
 
 { #category : #accessing }
 D3SPartitionSunburstComponent >> sunburstDataString [
- "[{ 'id': 'flare.vis.operator.layout.PieLayout', 'value': 1 }, { 'id': 'flare.vis.operator.layout.RadialTreeLayout', 'value': 8 }] "
-	"The dot notation in 'id' allows group of bubble with the same family / group "
-	"Data must be an Array of Dictionaries with the format [{id, value}]"
 
 	| stream |
 	stream := String new writeStream.
 
-	stream nextPutAll: data printString.	
+	stream nextPutAll: model printModel.
 
 	^ stream contents
 ]

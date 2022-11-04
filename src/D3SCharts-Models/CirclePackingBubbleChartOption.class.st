@@ -33,19 +33,19 @@ CirclePackingBubbleChartOption class >> style: aChartStyleOption margin: aChartM
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CirclePackingBubbleChartOption >> margin [
 
 	^ margin printMarginOptions
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CirclePackingBubbleChartOption >> margin: aChartMarginOption [
 
 	margin := aChartMarginOption
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CirclePackingBubbleChartOption >> padding [
 
 	"Returns the padding between circles"
@@ -64,12 +64,13 @@ CirclePackingBubbleChartOption >> printOptions [
   group: d => d.group,
   title: d => d.title,
   link: d => d.link,
+  linkTarget: d => d.linkTarget,
   width:' , self width , ',
   height:' , self height , ',
   padding:' , self padding , ',' , self margin , self stroke, self colorScheme , '}'
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CirclePackingBubbleChartOption >> stroke [
 
 	"Returns a static stroke around the bubbles"
@@ -77,7 +78,7 @@ CirclePackingBubbleChartOption >> stroke [
 	^ stroke printStrokeOptions 
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CirclePackingBubbleChartOption >> stroke: aFloatValue [
 
 	"Assign a value to the static stroke around the bubbles"

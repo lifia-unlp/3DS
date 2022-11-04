@@ -42,9 +42,9 @@ LinkGraphModel >> linkValue [
 ]
 
 { #category : #'accessing - private' }
-LinkGraphModel >> linkValue: anObject [
+LinkGraphModel >> linkValue: aValue [
 
-	linkValue := anObject
+	linkValue := aValue
 ]
 
 { #category : #accessing }

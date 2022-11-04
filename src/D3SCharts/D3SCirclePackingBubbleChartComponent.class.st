@@ -16,12 +16,6 @@ D3SCirclePackingBubbleChartComponent class >> model: aCirclePackingBubbleChartMo
 { #category : #script }
 D3SCirclePackingBubbleChartComponent >> bubbleDataString [
 
-	"[{ 'id': 'flare.vis.operator.layout.PieLayout', 'value': 1 }, { 'id': 'flare.vis.operator.layout.RadialTreeLayout', 'value': 8 }] "
-
-	"The dot notation in 'id' allows group of bubble with the same family / group "
-
-	"Data must be an Array of Dictionaries with the format [{id, value}]"
-
 	| stream |
 	stream := String new writeStream.
 	stream nextPutAll: model printModel.
@@ -31,10 +25,10 @@ D3SCirclePackingBubbleChartComponent >> bubbleDataString [
 
 { #category : #initialization }
 D3SCirclePackingBubbleChartComponent >> initialize [
-   super initialize. 
-	options := CirclePackingBubbleChartOption new initialize.
-	model := CirclePackingBubbleChartModel new.
 
+	super initialize.
+	options := CirclePackingBubbleChartOption new.
+	model := CirclePackingBubbleChartModel new initialize
 ]
 
 { #category : #script }
