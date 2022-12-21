@@ -1,184 +1,34 @@
 Class {
 	#name : #D3SForceDirectedGraphComponent,
 	#superclass : #D3SComponent,
-	#instVars : [
-		'nodes',
-		'links'
-	],
 	#category : #D3SCharts
 }
 
-{ #category : #accessing }
-D3SForceDirectedGraphComponent class >> graphLinksMock [
-    "Returns an Array of Dictionaries with an example for this graph"
-    | linksMock linkMock sourceArray targetArray valueArray arrayCount |
+{ #category : #creation }
+D3SForceDirectedGraphComponent class >> model: aForceDirectedChartModel options: aForceDirectedChartOption [
 
-    sourceArray := #( 'Napoleon' 'Mlle.Baptistine' 'Mme.Magloire' 'Mme.Magloire' 'CountessdeLo' 'Geborand' 'Champtercier' 'Cravatte' 'Count' 'OldMan' 'Valjean' 'Valjean' 'Valjean' 'Valjean' 'Marguerite' 'Mme.deR' 'Isabeau' 'Gervais' 'Listolier' 'Fameuil' 'Fameuil' 'Blacheville' 'Blacheville' 'Blacheville' 'Favourite' 'Favourite' 'Favourite' 'Favourite' 'Dahlia' 'Dahlia' 'Dahlia' 'Dahlia' 'Dahlia' 'Zephine' 'Zephine' 'Zephine' 'Zephine' 'Zephine' 'Fantine' 'Fantine' 'Fantine' 'Fantine' 'Fantine' 'Fantine' 'Fantine' 'Mme.Thenardier' 'Mme.Thenardier' 'Thenardier' 'Thenardier' 'Thenardier' 'Cosette' 'Cosette' 'Cosette' 'Cosette' 'Javert' 'Javert' 'Javert' 'Javert' 'Javert' 'Fauchelevent' 'Fauchelevent' 'Bamatabois' 'Bamatabois' 'Bamatabois' 'Perpetue' 'Simplice' 'Simplice' 'Simplice' 'Simplice' 'Scaufflaire' 'Woman1' 'Woman1' 'Judge' 'Judge' 'Champmathieu' 'Champmathieu' 'Champmathieu' 'Brevet' 'Brevet' 'Brevet' 'Brevet' 'Chenildieu' 'Chenildieu' 'Chenildieu' 'Chenildieu' 'Chenildieu' 'Cochepaille' 'Cochepaille' 'Cochepaille' 'Cochepaille' 'Cochepaille' 'Cochepaille' 'Pontmercy' 'Boulatruelle' 'Eponine' 'Eponine' 'Anzelma' 'Anzelma' 'Woman2' 'Woman2' 'Woman2' 'MotherInnocent' 'MotherInnocent' 'Gribier' 'Mme.Burgon' 'Gavroche' 'Gavroche' 'Gavroche' 'Gavroche' 'Gillenormand' 'Gillenormand' 'Magnon' 'Magnon' 'Mlle.Gillenormand' 'Mlle.Gillenormand' 'Mlle.Gillenormand' 'Mme.Pontmercy' 'Mme.Pontmercy' 'Mlle.Vaubois' 'Lt.Gillenormand' 'Lt.Gillenormand' 'Lt.Gillenormand' 'Marius' 'Marius' 'Marius' 'Marius' 'Marius' 'Marius' 'Marius' 'Marius' 'Marius' 'Marius' 'BaronessT' 'BaronessT' 'Mabeuf' 'Mabeuf' 'Mabeuf' 'Enjolras' 'Enjolras' 'Enjolras' 'Enjolras' 'Enjolras' 'Combeferre' 'Combeferre' 'Combeferre' 'Combeferre' 'Prouvaire' 'Prouvaire' 'Prouvaire' 'Feuilly' 'Feuilly' 'Feuilly' 'Feuilly' 'Feuilly' 'Feuilly' 'Courfeyrac' 'Courfeyrac' 'Courfeyrac' 'Courfeyrac' 'Courfeyrac' 'Courfeyrac' 'Courfeyrac' 'Courfeyrac' 'Bahorel' 'Bahorel' 'Bahorel' 'Bahorel' 'Bahorel' 'Bahorel' 'Bahorel' 'Bahorel' 'Bossuet' 'Bossuet' 'Bossuet' 'Bossuet' 'Bossuet' 'Bossuet' 'Bossuet' 'Bossuet' 'Bossuet' 'Bossuet' 'Joly' 'Joly' 'Joly' 'Joly' 'Joly' 'Joly' 'Joly' 'Joly' 'Joly' 'Grantaire' 'Grantaire' 'Grantaire' 'Grantaire' 'Grantaire' 'Grantaire' 'Grantaire' 'Grantaire' 'Grantaire' 'MotherPlutarch' 'Gueulemer' 'Gueulemer' 'Gueulemer' 'Gueulemer' 'Gueulemer' 'Gueulemer' 'Babet' 'Babet' 'Babet' 'Babet' 'Babet' 'Babet' 'Claquesous' 'Claquesous' 'Claquesous' 'Claquesous' 'Claquesous' 'Claquesous' 'Claquesous' 'Claquesous' 'Montparnasse' 'Montparnasse' 'Montparnasse' 'Montparnasse' 'Montparnasse' 'Montparnasse' 'Montparnasse' 'Montparnasse' 'Toussaint' 'Toussaint' 'Toussaint' 'Child1' 'Child2' 'Child2' 'Brujon' 'Brujon' 'Brujon' 'Brujon' 'Brujon' 'Brujon' 'Brujon' 'Mme.Hucheloup' 'Mme.Hucheloup' 'Mme.Hucheloup' 'Mme.Hucheloup' 'Mme.Hucheloup' 'Mme.Hucheloup' 'Mme.Hucheloup'
-    ).
-
-
-    targetArray := #( 'Myriel' 'Myriel' 'Myriel' 'Mlle.Baptistine' 'Myriel' 'Myriel' 'Myriel' 'Myriel' 'Myriel' 'Myriel' 'Labarre' 'Mme.Magloire' 'Mlle.Baptistine' 'Myriel' 'Valjean' 'Valjean' 'Valjean' 'Valjean' 'Tholomyes' 'Tholomyes' 'Listolier' 'Tholomyes' 'Listolier' 'Fameuil' 'Tholomyes' 'Listolier' 'Fameuil' 'Blacheville' 'Tholomyes' 'Listolier' 'Fameuil' 'Blacheville' 'Favourite' 'Tholomyes' 'Listolier' 'Fameuil' 'Blacheville' 'Dahlia' 'Listolier' 'Fameuil' 'Blacheville' 'Favourite' 'Zephine' 'Marguerite' 'Valjean' 'Fantine' 'Valjean' 'Mme.Thenardier' 'Fantine' 'Valjean' 'Mme.Thenardier' 'Valjean' 'Tholomyes' 'Thenardier' 'Valjean' 'Fantine' 'Thenardier' 'Mme.Thenardier' 'Cosette' 'Javert' 'Valjean' 'Fantine' 'Javert' 'Valjean' 'Fantine' 'Perpetue' 'Valjean' 'Fantine' 'Javert' 'Valjean' 'Valjean' 'Javert' 'Valjean' 'Bamatabois' 'Valjean' 'Judge' 'Bamatabois' 'Judge' 'Champmathieu' 'Valjean' 'Bamatabois' 'Judge' 'Champmathieu' 'Brevet' 'Valjean' 'Bamatabois' 'Judge' 'Champmathieu' 'Brevet' 'Chenildieu' 'Valjean' 'Bamatabois' 'Thenardier' 'Thenardier' 'Mme.Thenardier' 'Thenardier' 'Eponine' 'Mme.Thenardier' 'Valjean' 'Cosette' 'Javert' 'Fauchelevent' 'Valjean' 'Fauchelevent' 'Jondrette' 'Mme.Burgon' 'Thenardier' 'Javert' 'Valjean' 'Valjean' 'Cosette' 'Gillenormand' 'Mme.Thenardier' 'Gillenormand' 'Cosette' 'Valjean' 'Mlle.Gillenormand' 'Pontmercy' 'Mlle.Gillenormand' 'Mlle.Gillenormand' 'Gillenormand' 'Cosette' 'Mlle.Gillenormand' 'Gillenormand' 'Pontmercy' 'Lt.Gillenormand' 'Cosette' 'Valjean' 'Tholomyes' 'Thenardier' 'Eponine' 'Gavroche' 'Gillenormand' 'Marius' 'Marius' 'Eponine' 'Gavroche' 'Marius' 'Gavroche' 'Javert' 'Mabeuf' 'Valjean' 'Enjolras' 'Marius' 'Gavroche' 'Mabeuf' 'Gavroche' 'Enjolras' 'Combeferre' 'Gavroche' 'Enjolras' 'Prouvaire' 'Combeferre' 'Mabeuf' 'Marius' 'Marius' 'Enjolras' 'Combeferre' 'Gavroche' 'Mabeuf' 'Eponine' 'Feuilly' 'Prouvaire' 'Combeferre' 'Gavroche' 'Courfeyrac' 'Mabeuf' 'Enjolras' 'Feuilly' 'Prouvaire' 'Marius' 'Marius' 'Courfeyrac' 'Gavroche' 'Bahorel' 'Enjolras' 'Feuilly' 'Prouvaire' 'Combeferre' 'Mabeuf' 'Valjean' 'Bahorel' 'Gavroche' 'Courfeyrac' 'Enjolras' 'Feuilly' 'Prouvaire' 'Combeferre' 'Mabeuf' 'Marius' 'Bossuet' 'Enjolras' 'Combeferre' 'Courfeyrac' 'Joly' 'Gavroche' 'Bahorel' 'Feuilly' 'Prouvaire' 'Mabeuf' 'Thenardier' 'Valjean' 'Mme.Thenardier' 'Javert' 'Gavroche' 'Eponine' 'Thenardier' 'Gueulemer' 'Valjean' 'Mme.Thenardier' 'Javert' 'Eponine' 'Thenardier' 'Babet' 'Gueulemer' 'Valjean' 'Mme.Thenardier' 'Javert' 'Eponine' 'Enjolras' 'Javert' 'Babet' 'Gueulemer' 'Claquesous' 'Valjean' 'Gavroche' 'Eponine' 'Thenardier' 'Cosette' 'Javert' 'Valjean' 'Gavroche' 'Gavroche' 'Child1' 'Babet' 'Gueulemer' 'Thenardier' 'Gavroche' 'Eponine' 'Claquesous' 'Montparnasse' 'Bossuet' 'Joly' 'Grantaire' 'Bahorel' 'Courfeyrac' 'Gavroche' 'Enjolras'
-).
-
-
-
-
-valueArray := #( 1 8 10 6 1 1 1 1 2 1 1 3 3 5 1 1 1 1 4 4 4 4 4 4 3 3 3 4 3 3 3 3 5 3 3 3 3 4 3 3 3 4 4 2 9 2 7 13 1 12 4 31 1 1 17 5 5 1 1 1 8 1 1 2 1 2 3 2 1 1 2 1 3 2 3 3 2 2 2 2 1 2 2 2 2 1 2 2 2 2 2 1 1 1 2 3 2 1 3 1 1 3 1 2 1 2 1 1 1 2 3 1 1 9 2 2 1 1 1 2 1 1 6 12 1 1 21 19 1 2 5 4 1 1 1 1 1 7 7 6 1 4 15 5 6 2 1 4 2 2 6 2 5 1 1 9 17 13 7 2 1 6 3 5 5 6 2 4 3 2 1 5 12 5 4 10 6 2 9 1 1 5 3 5 5 5 2 5 1 2 3 3 1 2 2 1 1 1 1 3 5 1 1 1 1 1 6 6 1 1 2 1 4 4 4 1 1 1 1 1 1 2 2 2 1 1 1 1 2 1 1 2 2 3 3 3 3 1 1 1 1 1 1 1 1 1 1 1
-).
-
-
-    linksMock := Array3DS new.
-    arrayCount := sourceArray size.
-
-    1 to: arrayCount do: [ :each | 
-        linkMock := Dictionary3DS new.
-        linkMock addKey: 'source' withValue: (sourceArray at: each);
-            addKey: 'target' withValue: (targetArray at: each);
-            addKey: 'value' withValue: (valueArray at: each).
-        linksMock add: linkMock.
-        ].
-    
-
-    ^ linksMock
-]
-
-{ #category : #accessing }
-D3SForceDirectedGraphComponent class >> graphNodesMock [
-    "Returns an Array of Dictionaries with an example for this graph"
-    | nodesMock nodeMock idArrayMock groupArrayMock arrayCount |
-
-    idArrayMock := #( 'Myriel'
-                    'Napoleon'
-                    'Mlle.Baptistine'
-                    'Mme.Magloire'
-                    'CountessdeLo'
-                    'Geborand'
-                    'Champtercier'
-                    'Cravatte'
-                    'Count'
-                    'OldMan'
-                    'Labarre'
-                    'Valjean'
-                    'Marguerite'
-                    'Mme.deR'
-                    'Isabeau'
-                    'Gervais'
-                    'Tholomyes'
-                    'Listolier'
-                    'Fameuil'
-                    'Blacheville'
-                    'Favourite'
-                    'Dahlia'
-                    'Zephine'
-                    'Fantine'
-                    'Mme.Thenardier'
-                    'Cosette'
-                    'Javert'
-                    'Fauchelevent'
-                    'Bamatabois'
-                    'Perpetue'
-                    'Simplice'
-                    'Woman1'
-                    'Judge'
-                    'Champmathieu'
-                    'Brevet'
-                    'Chenildieu'
-                    'Cochepaille'
-                    'Pontmercy'
-                    'Boulatruelle'
-                    'Eponine'
-                    'Anzelma'
-                    'Woman2'
-                    'MotherInnocent'
-                    'Gribier'
-                    'Jondrette'
-                    'Mme.Burgon'
-                    'Gavroche'
-                    'Gillenormand'
-                    'Magnon'
-                    'Mlle.Gillenormand'
-                    'Mme.Pontmercy'
-                    'Mlle.Vaubois'
-                    'Lt.Gillenormand'
-                    'Marius'
-                    'BaronessT'
-                    'Mabeuf'
-                    'Enjolras'
-                    'Combeferre'
-                    'Prouvaire'
-                    'Feuilly'
-                    'Courfeyrac'
-                    'Bahorel'
-                    'Bossuet'
-                    'Joly'
-                    'Grantaire'
-                    'MotherPlutarch'
-                    'Gueulemer'
-                    'Mme.Hucheloup'
-                    'Babet'
-                    'Claquesous'
-                    'Montparnasse'
-                    'Toussaint'
-                    'Child1'
-                    'Child2'
-                    'Brujon'
-                    'Thenardier'
-                    'Scaufflaire'
-
-                    ).
-
-    groupArrayMock := #( 1 1 1 1 1 1 1 1 1 1
-                        2 2 3 2 2 2 3 3 3 3 3 3 3 3 4 5 4 0 2 3 2 2 2 2 2 2 2 4 6 4 4 5 0 0 7 7 8 5 5 5 5 5
-                        5 8 5 8 8 8 8 8 8 8 8 8 8 9 4 8 4 4 4 5 10 10 4 4 2
-                        ).
-
-
-    nodesMock := Array3DS new.
-    arrayCount := idArrayMock size.
-
-    1 to: arrayCount do: [ :each | 
-        nodeMock := Dictionary3DS new.
-        nodeMock addKey: 'id' withValue: (idArrayMock at: each);
-        		addKey: 'group' withValue: (groupArrayMock at: each).
-        nodesMock add: nodeMock.
-        ].
-    
-    ^ nodesMock
-]
-
-{ #category : #accessing }
-D3SForceDirectedGraphComponent class >> nodes: anArrayOfNodes links: anArrayOfLinks [ 
 	^ self new
-		nodes: anArrayOfNodes
-		links: anArrayOfLinks;
-		yourself
+		  model: aForceDirectedChartModel;
+		  options: aForceDirectedChartOption;
+		  yourself
 ]
 
 { #category : #accessing }
 D3SForceDirectedGraphComponent >> graphDataString [
-	" A JSON structure with 2 objects 
-	 nodes, // an iterable of node objects (typically [{id}, …])
-    links // an iterable of link objects (typically [{source, target}, …])"
 
-	| stream data |
-	
-	data := Dictionary3DS new.
-   data addKey: 'nodes' withChildren: nodes;
-   		addKey: 'links' withChildren: links.
-	
+	| stream |
 	stream := String new writeStream.
-	stream nextPutAll: data printString.
+	stream nextPutAll: model printModel.
 
 	^ stream contents
 ]
 
 { #category : #initialization }
 D3SForceDirectedGraphComponent >> initialize [
-   super initialize. 
-	width := 900.
-	height := 900.
-	nodes := self class graphNodesMock.
-	links := self class graphLinksMock.
+
+	super initialize.
+	options := ForceDirectedGraphChartOption new.
+	model := ForceDirectedGraphChartModel new initialize
 ]
 
 { #category : #script }
@@ -187,14 +37,7 @@ D3SForceDirectedGraphComponent >> jsForDivId: anId [
 	^ '
 	dataGraph = ', self graphDataString , ';
 	
-chart = ForceGraph(dataGraph, {
-  nodeId: d => d.id,
-  nodeGroup: d => d.group,
-  nodeTitle: d => `${d.id}\n${d.group}`,
-  linkStrokeWidth: l => Math.sqrt(l.value),
-  width: ', width printString,',
-  height: ', height printString ,'
-})
+chart = ForceGraph(dataGraph,', self options ,')
 
 document.getElementById(''', anId , ''').append(chart);
 	
@@ -336,28 +179,6 @@ function ForceGraph({
 }'
 ]
 
-{ #category : #accessing }
-D3SForceDirectedGraphComponent >> links [
-	^ links
-]
-
-{ #category : #accessing }
-D3SForceDirectedGraphComponent >> links: anArray [
- "Links must be an Array of Dictionaries with the format [{source, target, value}]"
-	links := anArray
-]
-
-{ #category : #accessing }
-D3SForceDirectedGraphComponent >> nodes [
-	^ nodes
-]
-
-{ #category : #accessing }
-D3SForceDirectedGraphComponent >> nodes: anArray [
- "Nodes must be an Array of Dictionaries with the format [{id, group}]"
-	nodes := anArray
-]
-
 { #category : #rendering }
 D3SForceDirectedGraphComponent >> renderContentOn: html [
 
@@ -365,8 +186,6 @@ D3SForceDirectedGraphComponent >> renderContentOn: html [
 	divId := html nextId.
 	html div
 		id: divId;
-		style:
-			'width: ' , width printString , 'px; height: ' , height printString
-			, 'px;'.
+		style: 'width: ' , self width , 'px; height: ' , self height , 'px;'.
 	html script: (self jsForDivId: divId).
 ]
