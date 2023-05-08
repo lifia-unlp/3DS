@@ -9,20 +9,52 @@ Class {
 	#name : #D3SComponent,
 	#superclass : #WAComponent,
 	#instVars : [
-		'height',
-		'width'
+		'model',
+		'options'
 	],
 	#category : #D3SCharts
 }
 
 { #category : #accessing }
 D3SComponent >> height [
-	^ height
+
+	^ options height
+]
+
+{ #category : #script }
+D3SComponent >> jsForDivId: anId [
+
+	self subclassResponsibility
 ]
 
 { #category : #accessing }
-D3SComponent >> height: anObject [
-	height := anObject
+D3SComponent >> model [
+	"Returns the chart model"
+	^ model
+]
+
+{ #category : #accessing }
+D3SComponent >> model: aChartModel [
+
+	"Assign a ChartOption model to configure the chart graph"
+
+	model := aChartModel
+]
+
+{ #category : #accessing }
+D3SComponent >> options [
+
+	"Returns the options in JSON format for send to chart JS functions"
+
+	^ options printOptions
+]
+
+{ #category : #accessing }
+D3SComponent >> options: aChartOption [
+
+	"Assign a ChartOption model to configure the chart graph"
+
+	options := aChartOption
 ]
 
 { #category : #updating }
@@ -34,10 +66,5 @@ D3SComponent >> updateRoot: anHtmlRoot [
 
 { #category : #accessing }
 D3SComponent >> width [
-	^ width
-]
-
-{ #category : #accessing }
-D3SComponent >> width: anObject [
-	width := anObject
+	^ options width
 ]
