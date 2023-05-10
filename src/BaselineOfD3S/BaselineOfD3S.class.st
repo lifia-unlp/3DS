@@ -14,11 +14,11 @@ BaselineOfD3S >> baseline: spec [
 		spec package: 'D3SCharts-Options'.
 		spec package: 'D3SCharts-ColorScheme'.
 		spec
-			package: 'D3SCharts-Model'
+			package: 'D3SCharts-Models'
 			with: [ spec requires: #( 'D3SCharts-Parsers' ) ].
 		spec
 			package: 'D3SCharts-Adapters'
-			with: [ spec requires: #( 'D3SCharts-Model' ) ].
+			with: [ spec requires: #( 'D3SCharts-Models' ) ].
 		spec
 			package: 'D3SCharts'
 			with: [ spec requires: #( 'D3SCharts-Adapters' 'Seaside3' ) ].
