@@ -4,8 +4,8 @@
 
 ```Smalltalk
 Metacello new
-	baseline: 'Lifiometro';
-	repository: 'github://lifia-unlp/memorias:main';
+	baseline: 'D3S';
+	repository: 'github://lifia-unlp/3DS:main';
 	onConflictUseLoaded;
 	load.
   ```
