@@ -14,49 +14,25 @@ Public API and Key Messages
  		adapter := ForceDirectedLinkGraphChartAdapter withAdaptee: anObjectToAdapt
 "
 Class {
-	#name : #ForceDirectedLinkGraphChartAdapter,
+	#name : #ForceDirectedLinkGraphChartInterface,
 	#superclass : #D3SChartAdapter,
-	#instVars : [
-		'adapteeTarget'
-	],
 	#category : #'D3SCharts-Adapters'
 }
 
-{ #category : #creating }
-ForceDirectedLinkGraphChartAdapter class >> withAdaptee: anAdaptee withAdapteeTarget: anAdapteeTarget [
-
-	^ self new
-		  adaptee: anAdaptee;
-		  adapteeTarget: anAdapteeTarget;
-		  yourself
-]
-
-{ #category : #'accessing - private' }
-ForceDirectedLinkGraphChartAdapter >> adapteeTarget [
-
-	^ adapteeTarget
-]
-
-{ #category : #'accessing - private' }
-ForceDirectedLinkGraphChartAdapter >> adapteeTarget: anObject [
-
-	adapteeTarget := anObject
-]
-
 { #category : #accessing }
-ForceDirectedLinkGraphChartAdapter >> linkValue [
+ForceDirectedLinkGraphChartInterface >> linkValue [
 	"Returns the value of link's weight between nodes "
 	self subclassResponsibility.
 ]
 
 { #category : #accessing }
-ForceDirectedLinkGraphChartAdapter >> source [
+ForceDirectedLinkGraphChartInterface >> source [
 	"Returns the label or id to identify the source node"
 	self subclassResponsibility.
 ]
 
 { #category : #accessing }
-ForceDirectedLinkGraphChartAdapter >> target [
+ForceDirectedLinkGraphChartInterface >> target [
 	"Returns the label or id to identify the target node"
 	self subclassResponsibility.
 ]

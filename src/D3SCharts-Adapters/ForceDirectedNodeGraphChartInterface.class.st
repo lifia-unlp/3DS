@@ -13,13 +13,13 @@ Public API and Key Messages
  		adapter := ForceDirectedNodeGraphChartAdapter withAdaptee: anObjectToAdapt
 "
 Class {
-	#name : #ForceDirectedNodeGraphChartAdapter,
+	#name : #ForceDirectedNodeGraphChartInterface,
 	#superclass : #D3SChartAdapter,
 	#category : #'D3SCharts-Adapters'
 }
 
 { #category : #accessing }
-ForceDirectedNodeGraphChartAdapter >> group [
+ForceDirectedNodeGraphChartInterface >> group [
 
 	"Returns the label or id to identify and associates a group of nodes"
 
@@ -27,7 +27,7 @@ ForceDirectedNodeGraphChartAdapter >> group [
 ]
 
 { #category : #accessing }
-ForceDirectedNodeGraphChartAdapter >> id [
+ForceDirectedNodeGraphChartInterface >> id [
 
 	"Returns the label or id to identify the node"
 
@@ -35,7 +35,7 @@ ForceDirectedNodeGraphChartAdapter >> id [
 ]
 
 { #category : #accessing }
-ForceDirectedNodeGraphChartAdapter >> title [
+ForceDirectedNodeGraphChartInterface >> title [
 
 	"Returns the title to show in the node when hover it"
 
