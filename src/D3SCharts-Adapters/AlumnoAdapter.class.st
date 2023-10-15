@@ -19,7 +19,7 @@ Public API and Key Messages
 "
 Class {
 	#name : #AlumnoAdapter,
-	#superclass : #CirclePackingBubbleChartAdapter,
+	#superclass : #CirclePackingBubbleChartInterface,
 	#category : #'D3SCharts-Adapters'
 }
 

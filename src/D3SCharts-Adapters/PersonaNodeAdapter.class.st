@@ -14,7 +14,7 @@ Public API and Key Messages
 "
 Class {
 	#name : #PersonaNodeAdapter,
-	#superclass : #ForceDirectedNodeGraphChartAdapter,
+	#superclass : #ForceDirectedNodeGraphChartInterface,
 	#category : #'D3SCharts-Adapters'
 }
 

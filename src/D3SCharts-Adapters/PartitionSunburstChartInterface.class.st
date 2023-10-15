@@ -18,13 +18,13 @@ Public API and Key Messages
 
 "
 Class {
-	#name : #PartitionSunburstChartAdapter,
+	#name : #PartitionSunburstChartInterface,
 	#superclass : #D3SChartAdapter,
 	#category : #'D3SCharts-Adapters'
 }
 
 { #category : #accessing }
-PartitionSunburstChartAdapter >> children [
+PartitionSunburstChartInterface >> children [
 
 	"Returns the children/s to associete in the partition"
 
@@ -32,7 +32,7 @@ PartitionSunburstChartAdapter >> children [
 ]
 
 { #category : #accessing }
-PartitionSunburstChartAdapter >> label [
+PartitionSunburstChartInterface >> label [
 
 	"Returns the label to show in the partition"
 
@@ -40,7 +40,7 @@ PartitionSunburstChartAdapter >> label [
 ]
 
 { #category : #accessing }
-PartitionSunburstChartAdapter >> link [
+PartitionSunburstChartInterface >> link [
 
 	"Returns the link to add in the partition"
 
@@ -48,7 +48,7 @@ PartitionSunburstChartAdapter >> link [
 ]
 
 { #category : #accessing }
-PartitionSunburstChartAdapter >> linkTarget [
+PartitionSunburstChartInterface >> linkTarget [
 
 	"Returns the target link to add in the partition"
 
@@ -56,7 +56,7 @@ PartitionSunburstChartAdapter >> linkTarget [
 ]
 
 { #category : #accessing }
-PartitionSunburstChartAdapter >> name [
+PartitionSunburstChartInterface >> name [
 
 	"Returns the name to identify the partition"
 
@@ -64,7 +64,7 @@ PartitionSunburstChartAdapter >> name [
 ]
 
 { #category : #accessing }
-PartitionSunburstChartAdapter >> title [
+PartitionSunburstChartInterface >> title [
 
 	"Returns the title to show in the partition"
 

@@ -19,13 +19,13 @@ Public API and Key Messages
 
 "
 Class {
-	#name : #CirclePackingBubbleChartAdapter,
+	#name : #CirclePackingBubbleChartInterface,
 	#superclass : #D3SChartAdapter,
 	#category : #'D3SCharts-Adapters'
 }
 
 { #category : #accessing }
-CirclePackingBubbleChartAdapter >> bubbleValue [
+CirclePackingBubbleChartInterface >> bubbleValue [
 
 	"Returns the value to show in the bubble"
 
@@ -33,13 +33,13 @@ CirclePackingBubbleChartAdapter >> bubbleValue [
 ]
 
 { #category : #accessing }
-CirclePackingBubbleChartAdapter >> group [
+CirclePackingBubbleChartInterface >> group [
 	"Returns the group to packing the bubbles"
 	self subclassResponsibility.
 ]
 
 { #category : #accessing }
-CirclePackingBubbleChartAdapter >> label [
+CirclePackingBubbleChartInterface >> label [
 
 	"Returns the label to show in the bubble"
 
@@ -47,7 +47,7 @@ CirclePackingBubbleChartAdapter >> label [
 ]
 
 { #category : #accessing }
-CirclePackingBubbleChartAdapter >> link [
+CirclePackingBubbleChartInterface >> link [
 
 	"Returns the link to add in the bubbles"
 
@@ -55,7 +55,7 @@ CirclePackingBubbleChartAdapter >> link [
 ]
 
 { #category : #accessing }
-CirclePackingBubbleChartAdapter >> linkTarget [
+CirclePackingBubbleChartInterface >> linkTarget [
 
 	"Returns the target link to add in the bubbles"
 
@@ -63,7 +63,7 @@ CirclePackingBubbleChartAdapter >> linkTarget [
 ]
 
 { #category : #accessing }
-CirclePackingBubbleChartAdapter >> name [
+CirclePackingBubbleChartInterface >> name [
 
 	"Returns the name to identify the bubble"
 
@@ -71,7 +71,7 @@ CirclePackingBubbleChartAdapter >> name [
 ]
 
 { #category : #accessing }
-CirclePackingBubbleChartAdapter >> title [
+CirclePackingBubbleChartInterface >> title [
 
 	"Returns the title to show in the bubble"
 

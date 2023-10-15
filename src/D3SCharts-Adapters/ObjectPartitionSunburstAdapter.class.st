@@ -18,7 +18,7 @@ Public API and Key Messages
 "
 Class {
 	#name : #ObjectPartitionSunburstAdapter,
-	#superclass : #PartitionSunburstChartAdapter,
+	#superclass : #PartitionSunburstChartInterface,
 	#category : #'D3SCharts-Adapters'
 }
 

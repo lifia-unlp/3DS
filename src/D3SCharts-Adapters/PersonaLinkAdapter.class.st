@@ -16,11 +16,35 @@ Public API and Key Messages
 "
 Class {
 	#name : #PersonaLinkAdapter,
-	#superclass : #ForceDirectedLinkGraphChartAdapter,
+	#superclass : #ForceDirectedLinkGraphChartInterface,
+	#instVars : [
+		'adapteeTarget'
+	],
 	#category : #'D3SCharts-Adapters'
 }
 
+{ #category : #creating }
+PersonaLinkAdapter class >> withAdaptee: anAdaptee withAdapteeTarget: anAdapteeTarget [
+
+	^ self new
+		  adaptee: anAdaptee;
+		  adapteeTarget: anAdapteeTarget;
+		  yourself
+]
+
 { #category : #'accessing - private' }
+PersonaLinkAdapter >> adapteeTarget [
+
+	^ adapteeTarget
+]
+
+{ #category : #'accessing - private' }
+PersonaLinkAdapter >> adapteeTarget: anObject [
+
+	adapteeTarget := anObject
+]
+
+{ #category : #accessing }
 PersonaLinkAdapter >> linkValue [ 
 	^ 1
 ]
