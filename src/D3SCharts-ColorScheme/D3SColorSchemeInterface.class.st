@@ -1,10 +1,10 @@
 Class {
-	#name : #D3SColorScheme,
+	#name : #D3SColorSchemeInterface,
 	#superclass : #Object,
 	#category : #'D3SCharts-ColorScheme'
 }
 
 { #category : #printing }
-D3SColorScheme >> printScheme [
+D3SColorSchemeInterface >> printScheme [
 	self subclassResponsibility.
 ]
