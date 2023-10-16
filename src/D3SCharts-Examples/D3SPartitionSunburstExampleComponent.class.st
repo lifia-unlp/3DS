@@ -32,7 +32,7 @@ D3SPartitionSunburstExampleComponent class >> optionsMock [
 
 	margin := ChartMarginOption margin: 1.
 
-	style := CircularChartStyleOption width: 900 height: 900.
+	style := CircularChartStyleOption width: 1000 height: 1000 padding: 1 radius: 500.
 
 	options := PartitionSunburstChartOption
 		           style: style

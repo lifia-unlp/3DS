@@ -1,6 +1,6 @@
 Class {
 	#name : #ChartStrokeOption,
-	#superclass : #Object,
+	#superclass : #ChartStrokeOptionInterface,
 	#instVars : [
 		'stroke',
 		'opacity',

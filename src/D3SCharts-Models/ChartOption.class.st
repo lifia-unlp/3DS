@@ -36,7 +36,7 @@ ChartOption >> height [
 
 	"Returns height value size in pixels"
 
-	^ style height printString
+	^ style printHeight
 ]
 
 { #category : #printing }
@@ -64,5 +64,5 @@ ChartOption >> width [
 
 	"Returns width size in pixels"
 
-	^ style width printString
+	^ style printWidth
 ]

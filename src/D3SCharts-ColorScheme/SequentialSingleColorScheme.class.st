@@ -1,6 +1,6 @@
 Class {
 	#name : #SequentialSingleColorScheme,
-	#superclass : #D3SColorScheme,
+	#superclass : #D3SColorSchemeInterface,
 	#category : #'D3SCharts-ColorScheme'
 }
 

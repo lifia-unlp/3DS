@@ -1,6 +1,6 @@
 Class {
 	#name : #ChartStyleOption,
-	#superclass : #Object,
+	#superclass : #ChartStyleOptionInterface,
 	#instVars : [
 		'width',
 		'height',
@@ -25,37 +25,55 @@ ChartStyleOption class >> width: aWidthValue height: aHeightValue padding: aPadd
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 ChartStyleOption >> height [
 
 	^ height
 ]
 
-{ #category : #accessing }
+{ #category : #'private - initialization' }
 ChartStyleOption >> height: anObject [
 
 	height := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 ChartStyleOption >> padding [
 
 	^ padding
 ]
 
-{ #category : #accessing }
+{ #category : #'private - initialization' }
 ChartStyleOption >> padding: anObject [
 
 	padding := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #printing }
+ChartStyleOption >> printHeight [ 
+	
+	^ height printString
+]
+
+{ #category : #printing }
+ChartStyleOption >> printPadding [ 
+	
+	^ padding printString
+]
+
+{ #category : #printing }
+ChartStyleOption >> printWidth [ 
+	
+	^ width printString
+]
+
+{ #category : #'accessing - private' }
 ChartStyleOption >> width [
 
 	^ width
 ]
 
-{ #category : #accessing }
+{ #category : #'private - initialization' }
 ChartStyleOption >> width: anObject [
 
 	width := anObject

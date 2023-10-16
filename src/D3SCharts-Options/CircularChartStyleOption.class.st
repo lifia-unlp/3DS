@@ -24,13 +24,19 @@ CircularChartStyleOption class >> width: aWidthValue height: aHeightValue paddin
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : #printing }
+CircularChartStyleOption >> printRadius [ 
+	
+	^ radius printString
+]
+
+{ #category : #'accessing - private' }
 CircularChartStyleOption >> radius [
 
 	^ radius
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CircularChartStyleOption >> radius: anObject [
 
 	radius := anObject

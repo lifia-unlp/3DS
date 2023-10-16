@@ -31,37 +31,37 @@ CirclePackingBubbleSchemeColor class >> colors: aD3ColorScheme groups: aGroupsCo
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CirclePackingBubbleSchemeColor >> fill [
 
 	^ fill
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CirclePackingBubbleSchemeColor >> fill: anObject [
 
 	fill := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CirclePackingBubbleSchemeColor >> fillOpacity [
 
 	^ fillOpacity
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CirclePackingBubbleSchemeColor >> fillOpacity: anObject [
 
 	fillOpacity := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CirclePackingBubbleSchemeColor >> groups [
 
 	^ groups
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 CirclePackingBubbleSchemeColor >> groups: anObject [
 
 	groups := anObject

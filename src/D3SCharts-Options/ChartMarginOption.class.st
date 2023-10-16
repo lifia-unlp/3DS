@@ -1,6 +1,6 @@
 Class {
 	#name : #ChartMarginOption,
-	#superclass : #Object,
+	#superclass : #ChartMarginOptionInterface,
 	#instVars : [
 		'margin',
 		'top',

@@ -68,10 +68,11 @@ PartitionSunburstChartOption >> printOptions [
   padding:' , self padding , ',' , self margin , self colorScheme , '}'
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 PartitionSunburstChartOption >> radius [
 
 	"Returns the outer radius"
-
-	style radius ifNil: [ ^''] ifNotNil: [ ^ 'radius: ' , style radius printString , ',']  
+	| graphRadius |
+	graphRadius := style printRadius.
+	graphRadius ifEmpty: [ ^''] ifNotEmpty: [ ^ 'radius: ' , graphRadius , ',']  
 ]

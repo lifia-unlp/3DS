@@ -50,7 +50,7 @@ CirclePackingBubbleChartOption >> padding [
 
 	"Returns the padding between circles"
 
-	^ style padding printString
+	^ style printPadding
 ]
 
 { #category : #printing }
