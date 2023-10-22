@@ -1,6 +1,6 @@
 Class {
 	#name : #D3SArray,
-	#superclass : #Object,
+	#superclass : #D3SPrinterInterface,
 	#instVars : [
 		'array'
 	],

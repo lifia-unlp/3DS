@@ -4,15 +4,6 @@ Class {
 	#category : #D3SCharts
 }
 
-{ #category : #creation }
-D3SPartitionSunburstComponent class >> model: aPartitionSunburstChartModel options: aPartitionSunburstChartOption [
-
-	^ self new
-		  model: aPartitionSunburstChartModel;
-		  options: aPartitionSunburstChartOption;
-		  yourself
-]
-
 { #category : #initialization }
 D3SPartitionSunburstComponent >> initialize [
 
@@ -25,11 +16,9 @@ D3SPartitionSunburstComponent >> initialize [
 D3SPartitionSunburstComponent >> jsForDivId: anId [
 
   ^ '
-flare = ', self sunburstDataString ,';
+flare = ', self printModelDataString ,';
 
 chart = Sunburst(flare, ', self options ,')
-
-console.log(chart);
 
 document.getElementById(''', anId , ''').append(chart);
 
@@ -149,15 +138,4 @@ D3SPartitionSunburstComponent >> renderContentOn: html [
 		id: divId;
 		style: 'width: ' , self width , 'px; height: ' , self height , 'px;'.
 	html script: (self jsForDivId: divId)
-]
-
-{ #category : #accessing }
-D3SPartitionSunburstComponent >> sunburstDataString [
-
-	| stream |
-	stream := String new writeStream.
-
-	stream nextPutAll: model printModel.
-
-	^ stream contents
 ]

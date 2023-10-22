@@ -16,7 +16,7 @@ Class {
 	#category : #'D3SCharts-Models'
 }
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 D3SModel >> model [
 
 	"This method is required to generate the JSON data to print the model information to the chart using the D3S Parsers objects"
@@ -24,7 +24,7 @@ D3SModel >> model [
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 D3SModel >> model: anObject [
 
 	model := anObject

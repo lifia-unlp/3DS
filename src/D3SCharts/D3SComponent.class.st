@@ -15,7 +15,16 @@ Class {
 	#category : #D3SCharts
 }
 
-{ #category : #accessing }
+{ #category : #creation }
+D3SComponent class >> model: aChartModel options: aChartOption [
+
+	^ self new
+		  model: aChartModel;
+		  options: aChartOption;
+		  yourself
+]
+
+{ #category : #'accessing - private' }
 D3SComponent >> height [
 
 	^ options height
@@ -27,13 +36,13 @@ D3SComponent >> jsForDivId: anId [
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 D3SComponent >> model [
 	"Returns the chart model"
 	^ model
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 D3SComponent >> model: aChartModel [
 
 	"Assign a ChartOption model to configure the chart graph"
@@ -41,7 +50,7 @@ D3SComponent >> model: aChartModel [
 	model := aChartModel
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 D3SComponent >> options [
 
 	"Returns the options in JSON format for send to chart JS functions"
@@ -49,12 +58,22 @@ D3SComponent >> options [
 	^ options printOptions
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 D3SComponent >> options: aChartOption [
 
 	"Assign a ChartOption model to configure the chart graph"
 
 	options := aChartOption
+]
+
+{ #category : #'accessing - private' }
+D3SComponent >> printModelDataString [
+
+	| stream |
+	stream := String new writeStream.
+	stream nextPutAll: model printModel.
+
+	^ stream contents
 ]
 
 { #category : #updating }
@@ -64,7 +83,7 @@ D3SComponent >> updateRoot: anHtmlRoot [
 
 ]
 
-{ #category : #accessing }
+{ #category : #'accessing - private' }
 D3SComponent >> width [
 	^ options width
 ]

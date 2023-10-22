@@ -4,25 +4,6 @@ Class {
 	#category : #D3SCharts
 }
 
-{ #category : #creation }
-D3SForceDirectedGraphComponent class >> model: aForceDirectedChartModel options: aForceDirectedChartOption [
-
-	^ self new
-		  model: aForceDirectedChartModel;
-		  options: aForceDirectedChartOption;
-		  yourself
-]
-
-{ #category : #accessing }
-D3SForceDirectedGraphComponent >> graphDataString [
-
-	| stream |
-	stream := String new writeStream.
-	stream nextPutAll: model printModel.
-
-	^ stream contents
-]
-
 { #category : #initialization }
 D3SForceDirectedGraphComponent >> initialize [
 
@@ -35,7 +16,7 @@ D3SForceDirectedGraphComponent >> initialize [
 D3SForceDirectedGraphComponent >> jsForDivId: anId [
 
 	^ '
-	dataGraph = ', self graphDataString , ';
+	dataGraph = ', self printModelDataString , ';
 	
 chart = ForceGraph(dataGraph,', self options ,')
 
