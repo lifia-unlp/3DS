@@ -4,25 +4,6 @@ Class {
 	#category : #D3SCharts
 }
 
-{ #category : #creation }
-D3SCirclePackingBubbleChartComponent class >> model: aCirclePackingBubbleChartModel options: aCirclePackingBubbleChartOption [
-
-	^ self new
-		  model: aCirclePackingBubbleChartModel;
-		  options: aCirclePackingBubbleChartOption;
-		  yourself
-]
-
-{ #category : #script }
-D3SCirclePackingBubbleChartComponent >> bubbleDataString [
-
-	| stream |
-	stream := String new writeStream.
-	stream nextPutAll: model printModel.
-
-	^ stream contents
-]
-
 { #category : #initialization }
 D3SCirclePackingBubbleChartComponent >> initialize [
 
@@ -35,13 +16,11 @@ D3SCirclePackingBubbleChartComponent >> initialize [
 D3SCirclePackingBubbleChartComponent >> jsForDivId: anId [
 
 	^ '
-flare = ', self bubbleDataString , ';
+flare = ', self printModelDataString , ';
 
 files = flare.filter(d => d.value !== null) 
 	
 chart = BubbleChart(files, ', self options ,')
-
-console.log(chart);
 
 document.getElementById(''', anId , ''').append(chart);
 

@@ -1,6 +1,6 @@
 Class {
 	#name : #D3SDictionary,
-	#superclass : #Object,
+	#superclass : #D3SPrinterInterface,
 	#instVars : [
 		'dictionary'
 	],
